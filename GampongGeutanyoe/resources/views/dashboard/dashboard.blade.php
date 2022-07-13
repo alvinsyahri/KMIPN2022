@@ -5,6 +5,7 @@
     <div class="card-body">
       <h5 class="card-title pb-1">Selamat Datang</h5>
       <h6 class="card-subtitle mb-2 text-muted">Gampong Geutanyoe | Dashboard</h6>
+      <hr>
       <div class="row">
         <div class="col m-5 me-0">
             <div style="padding: 35px; background-color:red; border-radius:25px; margin-bottom:25px;color:white">

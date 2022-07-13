@@ -28,3 +28,7 @@ Route::get('/solusi', function () {
 Route::get('/datasurat', function () {
     return view('dashboard.datasurat');
 });
+
+Route::get('/perizinan', function () {
+    return view('dashboard.perizinan');
+});

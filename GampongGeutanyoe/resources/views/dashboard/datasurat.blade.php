@@ -14,13 +14,10 @@
 <div class="card" style="width: auto; height:auto">
     {{-- header content --}}
     <div class="card-body">
-      <h5 class="card-title pb-1">Solusi</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Gampong Geutanyoe | Solusi</h6>
+      <h5 class="card-title pb-1">Data Surat</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Gampong Geutanyoe | Data Surat</h6>
+      <hr>
     {{-- end header content --}}
-
-      {{-- button --}}
-      <button type="button" class="btn btn-primary btn-lg m-2 mt-4"><i class="bi bi-plus"></i>Tambah</button>
-      {{-- end button --}}
 
         {{-- table 1 --}}
         <div class=" mt-5">
@@ -61,18 +58,6 @@
                       </td>
                     </tr>
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">No Hp</th>
-                        <th scope="col">jenis Surat</th>
-                        <th scope="col">KK</th>
-                        <th scope="col">KTP</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
                         <th scope="row">2</th>
                         <td>Safriudin</td>
                         <td>safriudin321@gmail.com</td>
@@ -94,18 +79,6 @@
                         </td>
                       </tr>
                       <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">No Hp</th>
-                        <th scope="col">jenis Surat</th>
-                        <th scope="col">KK</th>
-                        <th scope="col">KTP</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
                         <th scope="row">3</th>
                         <td>Safriudin</td>
                         <td>safriudin321@gmail.com</td>
@@ -126,18 +99,6 @@
                           <a href=""><i class="fa-solid fa-check"></i></a>
                         </td>
                       </tr>
-                      <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">No Hp</th>
-                        <th scope="col">jenis Surat</th>
-                        <th scope="col">KK</th>
-                        <th scope="col">KTP</th>
-                        <th scope="col">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
                       <tr>
                         <th scope="row">4</th>
                         <td>Safriudin</td>
@@ -211,17 +172,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">No Hp</th>
-                        <th scope="col">jenis Surat</th>
-                        <th scope="col">KK</th>
-                        <th scope="col">KTP</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
                         <th scope="row">2</th>
                         <td>Safriudin</td>
                         <td>safriudin321@gmail.com</td>
@@ -239,17 +189,6 @@
                           </td>
                       </tr>
                       <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">No Hp</th>
-                        <th scope="col">jenis Surat</th>
-                        <th scope="col">KK</th>
-                        <th scope="col">KTP</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
                         <th scope="row">3</th>
                         <td>Safriudin</td>
                         <td>safriudin321@gmail.com</td>
@@ -266,17 +205,6 @@
                               </div>
                           </td>
                       </tr>
-                      <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">No Hp</th>
-                        <th scope="col">jenis Surat</th>
-                        <th scope="col">KK</th>
-                        <th scope="col">KTP</th>
-                      </tr>
-                    </thead>
-                    <tbody>
                       <tr>
                         <th scope="row">4</th>
                         <td>Safriudin</td>

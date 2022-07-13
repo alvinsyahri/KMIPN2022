@@ -16,6 +16,7 @@
     <div class="card-body">
       <h5 class="card-title pb-1">Solusi</h5>
       <h6 class="card-subtitle mb-2 text-muted">Gampong Geutanyoe | Solusi</h6>
+      <hr>
     {{-- end header content --}}
 
       {{-- button --}}
