@@ -14,8 +14,8 @@
 <div class="card" style="width: auto; height:auto">
     {{-- header content --}}
     <div class="card-body">
-      <h5 class="card-title pb-1">Berita</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Gampong Geutanyoe | Upload</h6>
+      <h5 class="card-title pb-1">Keuangan</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Gampong Geutanyoe | Laporan</h6>
       <hr>
     {{-- end header content --}}
 
@@ -29,17 +29,28 @@
                 <div class="input-group mb-3">
                     <table>
                         <tr>
-                            <td><label for="">Judul</label></td>
-                            <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></td>
+                            <td><label for="">Tanggal</label></td>
+                            <td><input type="Date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></td>
                         </tr>
                         <tr>
-                            <td><label for="">Thumbnail</label></td>
+                            <td><label for="">Keterangan</label></td>
+                            <td><input type="Text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Debet</label></td>
+                            <td><input type="Text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Kredit</label></td>
+                            <td><input type="Text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Saldo</label></td>
+                            <td><input type="Text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Bukti</label></td>
                             <td><input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="">Text</label></td>
-                            <td><input id="x" type="hidden" name="content">
-                                <trix-editor input="x"></trix-editor></td>
                         </tr>
                     </table>
                 </div>
@@ -51,74 +62,75 @@
         <table class="table table-borderless mt-5">
             <thead>
                 <tr>
-                  <th scope="col">No</th>
-                  <th scope="col">Judul</th>
                   <th scope="col">Tanggal</th>
-                  <th scope="col">Thumbnail</th>
-                  <th scope="col">Text</th>
+                  <th scope="col">Keterangan</th>
+                  <th scope="col">Debet</th>
+                  <th scope="col">Kredit</th>
+                  <th scope="col">Saldo</th>
+                  <th scope="col">Bukti</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Pembentukan Panitia</td>
                   <td>20-09-2022</td>
-                  <td>
-                    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start align-items-md-center">
-                        <img class="transaction-img" src="/img/home/cover.png" alt="">
-                    </div>
-                  </td>
-                  <td>lorem ipsun arll the paramter in the live witohut</td>
+                  <td>Dana APBN</td>
+                  <td>Rp. 10.000.000</td>
+                  <td>Rp. 0</td>
+                  <td>Rp. 10.000.000</td>
+                  <td><a href=""><i class="fa-solid fa-file-arrow-up"></i></a></td>
                   <td>
                     <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
                     <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
                   </td>
                 </tr>
                 <tr>
-                    <th scope="row">2</th>
-                    <td>Pembentukan Panitia</td>
-                    <td>20-09-2022</td>
-                    <td>
-                      <div class="d-flex flex-column flex-md-row justify-content-start align-items-start align-items-md-center">
-                          <img class="transaction-img" src="/img/home/cover.png" alt="">
-                      </div>
-                    </td>
-                    <td>lorem ipsun arll the paramter in the live witohut</td>
-                    <td>
-                      <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
-                      <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
-                    </td>
+                    <td>10-12-2022</td>
+                    <td>Dana APBN</td>
+                    <td>Rp. 10.000.000</td>
+                    <td>Rp. 0</td>
+                    <td>Rp. 10.000.000</td>
+                    <td><a href=""><i class="fa-solid fa-file-arrow-up"></i></a></td>
+                  <td>
+                    <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
+                  </td>
                   </tr>
                   <tr>
-                    <th scope="row">3</th>
-                    <td>Pembentukan Panitia</td>
-                    <td>20-09-2022</td>
-                    <td>
-                      <div class="d-flex flex-column flex-md-row justify-content-start align-items-start align-items-md-center">
-                          <img class="transaction-img" src="/img/home/cover.png" alt="">
-                      </div>
-                    </td>
-                    <td>lorem ipsun arll the paramter in the live witohut</td>
-                    <td>
-                      <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
-                      <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
-                    </td>
+                    <td>29-01-2022</td>
+                    <td>Dana APBN</td>
+                    <td>Rp. 10.000.000</td>
+                    <td>Rp. 0</td>
+                    <td>Rp. 10.000.000</td>
+                    <td><a href=""><i class="fa-solid fa-file-arrow-up"></i></a></td>
+                  <td>
+                    <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
+                  </td>
                   </tr>
                   <tr>
-                    <th scope="row">4</th>
-                    <td>Pembentukan Panitia</td>
-                    <td>20-09-2022</td>
-                    <td>
-                      <div class="d-flex flex-column flex-md-row justify-content-start align-items-start align-items-md-center">
-                          <img class="transaction-img" src="/img/home/cover.png" alt="">
-                      </div>
-                    </td>
-                    <td>lorem ipsun arll the paramter in the live witohut</td>
-                    <td>
-                      <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
-                      <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
-                    </td>
+                    <td>13-04-2022</td>
+                    <td>Dana APBN</td>
+                    <td>Rp. 10.000.000</td>
+                    <td>Rp. 0</td>
+                    <td>Rp. 10.000.000</td>
+                    <td><a href=""><i class="fa-solid fa-file-arrow-up"></i></a></td>
+                  <td>
+                    <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
+                  </td>
+                  </tr>
+                  <tr>
+                    <td>10-01-2022</td>
+                    <td>Dana APBN</td>
+                    <td>Rp. 10.000.000</td>
+                    <td>Rp. 0</td>
+                    <td>Rp. 10.000.000</td>
+                    <td><a href=""><i class="fa-solid fa-file-arrow-up"></i></a></td>
+                  <td>
+                    <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
+                  </td>
                   </tr>
               </tbody>
           </table>

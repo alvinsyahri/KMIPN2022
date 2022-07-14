@@ -14,7 +14,7 @@
 <div class="card" style="width: auto; height:auto">
     {{-- header content --}}
     <div class="card-body">
-      <h5 class="card-title pb-1">Perizinan</h5>
+      <h5 class="card-title pb-1">Administrasi</h5>
       <h6 class="card-subtitle mb-2 text-muted">Gampong Geutanyoe | Perizinan</h6>
       <hr>
     {{-- end header content --}}

@@ -32,3 +32,23 @@ Route::get('/datasurat', function () {
 Route::get('/perizinan', function () {
     return view('dashboard.perizinan');
 });
+
+Route::get('/laporan', function () {
+    return view('dashboard.laporan');
+});
+
+Route::get('/createuser', function () {
+    return view('dashboard.createuser');
+});
+
+Route::get('/datauser', function () {
+    return view('dashboard.datauser');
+});
+
+Route::get('/tambah', function () {
+    return view('dashboard.tambahperangkat');
+});
+
+Route::get('/data', function () {
+    return view('dashboard.dataperangkat');
+});
