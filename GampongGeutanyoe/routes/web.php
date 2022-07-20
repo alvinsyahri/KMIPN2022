@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BeritaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,42 +14,84 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-});
+Route::prefix('/dashboard')->group(function () {
+    Route::get('/', function () {
+        return view('dashboard.index', [
+            'title' => 'Dashboard'
+        ]);
+    });
 
-Route::get('/upload', function () {
-    return view('dashboard.upload');
-});
+    Route::resource('/berita', BeritaController::class);
 
-Route::get('/solusi', function () {
-    return view('dashboard.solusi');
-});
+    Route::prefix('/administrasi')->group(function () {
+        Route::prefix('/solusi')->group(function () {
+            Route::get('/', function () {
+                return view('dashboard.solusi.index',[
+                    'title' => 'Administrasi'
+                ]);
+            });
+            Route::get('/tambah', function () {
+                return view('dashboard.solusi.create',[
+                    'title' => 'Administrasi'
+                ]);
+            });
+        });
+        Route::prefix('/data-surat')->group(function () {
+            Route::get('/', function () {
+                return view('dashboard.datasurat.index',[
+                    'title' => 'Data Surat'
+                ]);
+            });
+            Route::get('/edit', function () {
+                return view('dashboard.datasurat.edit',[
+                    'title' => 'Data Surat'
+                ]);
+            });
+        });
+        Route::get('/perizinan', function () {
+            return view('dashboard.perizinan.index',[
+                'title' => 'Perizinan'
+            ]);
+        });
+    });
 
-Route::get('/datasurat', function () {
-    return view('dashboard.datasurat');
-});
+    Route::prefix('/laporan')->group(function () {
+        Route::get('/', function () {
+            return view('dashboard.laporan.index',[
+                'title' => 'Laporan'
+            ]);
+        });
+        Route::get('/tambah', function () {
+            return view('dashboard.laporan.create',[
+                'title' => 'Laporan'
+            ]);
+        });
+    });
 
-Route::get('/perizinan', function () {
-    return view('dashboard.perizinan');
-});
+    Route::prefix('/user')->group(function () {
+        Route::get('/', function () {
+            return view('dashboard.user.index',[
+                'title' => 'User'
+            ]);
+        });
+        Route::get('/tambah', function () {
+            return view('dashboard.user.create',[
+                'title' => 'User'
+            ]);
+        });
+    });
 
-Route::get('/laporan', function () {
-    return view('dashboard.laporan');
-});
+    Route::prefix('/perangkat-gampong')->group(function () {
+        Route::get('/', function () {
+            return view('dashboard.perangkat.index',[
+                'title' => 'Perangkat Gampong'
+            ]);
+        });
+        Route::get('/tambah', function () {
+            return view('dashboard.perangkat.create',[
+                'title' => 'Perangkat Gampong'
+            ]);
+        });
+    });
 
-Route::get('/createuser', function () {
-    return view('dashboard.createuser');
-});
-
-Route::get('/datauser', function () {
-    return view('dashboard.datauser');
-});
-
-Route::get('/tambah', function () {
-    return view('dashboard.tambahperangkat');
-});
-
-Route::get('/data', function () {
-    return view('dashboard.dataperangkat');
 });
