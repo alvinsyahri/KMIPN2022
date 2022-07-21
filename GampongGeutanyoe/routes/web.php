@@ -68,15 +68,15 @@ Route::prefix('/dashboard')->group(function () {
         });
     });
 
-    Route::prefix('/user')->group(function () {
+    Route::prefix('/users')->group(function () {
         Route::get('/', function () {
             return view('dashboard.user.index',[
-                'title' => 'User'
+                'title' => 'Users'
             ]);
         });
         Route::get('/tambah', function () {
             return view('dashboard.user.create',[
-                'title' => 'User'
+                'title' => 'Users'
             ]);
         });
     });

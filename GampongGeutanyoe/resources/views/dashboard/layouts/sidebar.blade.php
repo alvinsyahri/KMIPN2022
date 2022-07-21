@@ -50,7 +50,7 @@
     </li>
 
     {{-- Keuangan --}}
-    <li class="menu-item {{ Request::is('dashboard/keuangan*') ? 'active' : '' }}">
+    <li class="menu-item {{ Request::is('dashboard/laporan*') ? 'active' : '' }}">
       <a href="/dashboard/laporan" class="menu-link">
         <i class="fa-duotone fa-circle-dollar me-3"></i>
         <div data-i18n="Analytics">Keuangan</div>
@@ -65,7 +65,7 @@
     </li>
     {{-- Users --}}
     <li class="menu-item {{ Request::is('dashboard/users*') ? 'active' : '' }}">
-      <a href="/dashboard/user" class="menu-link">
+      <a href="/dashboard/users" class="menu-link">
         <i class="fa-duotone fa-user-group fa-sm me-3"></i>
         <div data-i18n="Analytics">Users</div>
       </a>

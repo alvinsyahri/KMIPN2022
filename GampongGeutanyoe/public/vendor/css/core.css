@@ -6380,20 +6380,20 @@ label.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #71dd37;
-  border-color: #71dd37;
+  background-color: #10b981;
+  border-color: #10b981;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(113, 221, 55, 0.4);
 }
 .btn-success:hover {
   color: #fff;
-  background-color: #66c732;
-  border-color: #66c732;
+  background-color: #16a34a;
+  border-color: #16a34a;
   transform: translateY(-1px);
 }
 .btn-check:focus + .btn-success, .btn-success:focus, .btn-success.focus {
   color: #fff;
-  background-color: #66c732;
-  border-color: #66c732;
+  background-color: #16a34a;
+  border-color: #16a34a;
   transform: translateY(0);
   box-shadow: none;
 }

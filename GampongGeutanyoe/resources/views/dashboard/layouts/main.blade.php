@@ -65,7 +65,7 @@
         <!-- Content wrapper -->
         <div class="content-wrapper">
           <div class="container-xxl flex-grow-1 container-p-y">
-            <h1 class="fw-bold fs-2 py-3 mb-4">{{ $title }}</h1>
+            <h1 class="fw-bold fs-2 mb-5">{{ $title }}</h1>
 
             <!-- Content -->
             <main>
@@ -73,30 +73,6 @@
             </main>
           </div>
           <!-- / Content -->
-
-          <!-- Footer -->
-          {{-- <footer class="content-footer footer bg-footer-theme">
-            <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-              <div class="mb-2 mb-md-0">
-                ©
-                <script>
-                  document.write(new Date().getFullYear());
-                </script>
-                , made with ❤️ by
-                <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
-              </div>
-              <div>
-                <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-
-                <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="footer-link me-4">Support</a>
-              </div>
-            </div>
-          </footer> --}}
-          <!-- / Footer -->
-
           <div class="content-backdrop fade"></div>
         </div>
         <!-- / Content wrapper -->
@@ -111,9 +87,8 @@
 
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
-  <script src="{{ asset('vendor/libs/jquery/jquery.js') }}"></script>
-  <script src="{{ asset('vendor/libs/popper/popper.js') }}"></script>
-  <script src="{{ asset('vendor/js/bootstrap.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   <script src="{{ asset('vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
   <script src="{{ asset('vendor/js/menu.js') }}"></script>
@@ -127,6 +102,11 @@
 
   <!-- Page JS -->
   <script src="{{ asset('js/dashboards-analytics.js') }}"></script>
+
+  {{-- Datatables JS --}}
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+  <script src="{{ asset('js/datatables.js') }}"></script>
 
   {{-- trix js --}}
   <script type="text/javascript" src="{{ asset('js/trix.js') }}"></script>

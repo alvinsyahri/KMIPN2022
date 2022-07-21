@@ -1,125 +1,44 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-
-<style>
-    td{
-        padding: 10px;
-    }
-    table{
-        width: 50%;
-    }
-</style>
-
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Library</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Data</li>
-    </ol>
-  </nav>
-<div class="card" style="width: auto; height:auto">
-    {{-- header content --}}
+  {{-- Button --}}
+  <a class="btn btn-primary" href="/dashboard/berita/create">
+    <i class="fa-regular fa-plus me-2"></i>
+    Tambah
+  </a>
+  {{-- End Button --}}
+  <div class="card mt-3">
     <div class="card-body">
-      <hr>
-    {{-- end header content --}}
-
-      {{-- button --}}
-      <a class="btn btn-dark" href="/dashboard/berita/create">
-        <i class="fa-regular fa-plus me-2"></i>
-        Tambah
-      </a>
-      {{-- end button --}}
-
-        {{-- table --}}
-        <table class="table table-borderless mt-5">
-            <thead>
-                <tr>
-                  <th scope="col">No</th>
-                  <th scope="col">Judul</th>
-                  <th scope="col">Tanggal</th>
-                  <th scope="col">Thumbnail</th>
-                  <th scope="col">Text</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Pembentukan Panitia</td>
-                  <td>20-09-2022</td>
-                  <td>
-                    <div class="d-flex flex-column flex-md-row justify-content-start align-items-start align-items-md-center">
-                        <img class="transaction-img" src="/img/home/cover.png" alt="">
-                    </div>
-                  </td>
-                  <td>lorem ipsun arll the paramter in the live witohut</td>
-                  <td>
-                    <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
-                    <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Pembentukan Panitia</td>
-                    <td>20-09-2022</td>
-                    <td>
-                      <div class="d-flex flex-column flex-md-row justify-content-start align-items-start align-items-md-center">
-                          <img class="transaction-img" src="/img/home/cover.png" alt="">
-                      </div>
-                    </td>
-                    <td>lorem ipsun arll the paramter in the live witohut</td>
-                    <td>
-                      <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
-                      <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Pembentukan Panitia</td>
-                    <td>20-09-2022</td>
-                    <td>
-                      <div class="d-flex flex-column flex-md-row justify-content-start align-items-start align-items-md-center">
-                          <img class="transaction-img" src="/img/home/cover.png" alt="">
-                      </div>
-                    </td>
-                    <td>lorem ipsun arll the paramter in the live witohut</td>
-                    <td>
-                      <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
-                      <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Pembentukan Panitia</td>
-                    <td>20-09-2022</td>
-                    <td>
-                      <div class="d-flex flex-column flex-md-row justify-content-start align-items-start align-items-md-center">
-                          <img class="transaction-img" src="/img/home/cover.png" alt="">
-                      </div>
-                    </td>
-                    <td>lorem ipsun arll the paramter in the live witohut</td>
-                    <td>
-                      <a href=""><i class="fa-regular fa-pen-to-square"></i></a>
-                      <a href=""><i class="fa-regular fa-xmark fa-lg"></i></a>
-                    </td>
-                  </tr>
-              </tbody>
-          </table>
-        {{-- end table --}}
-
-        {{-- pagination --}}
-        <nav aria-label="...">
-            <ul class="pagination pagination-sm justify-content-center">
-              <li class="page-item active" aria-current="page">
-                <span class="page-link">1</span>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-            </ul>
-          </nav>
-        {{-- end pagination --}}
-      </div>
+      {{-- Table --}}
+      <table id="myTable" class="table responsive nowrap table-bordered table-striped align-middle" style="width:100%">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Judul</th>
+            <th>Tanggal</th>
+            <th>Thumbnail</th>
+            <th>Text</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Pembentukan Panitia</td>
+            <td>20-09-2022</td>
+            <td>
+              <img class="transaction-img" src="/img/home/cover.png" alt="" width="75px">
+            </td>
+            <td>lorem ipsun arll the paramter in the live witohut</td>
+            <td>
+              <a href="#"><i class="btn btn-sm btn-warning fa-regular fa-pen-to-square"></i></a>
+              <a href="#"><i class="btn btn-sm btn-danger fa-regular fa-xmark fa-lg"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      {{-- End Table --}}
     </div>
+  </div>
   </div>
 @endsection
