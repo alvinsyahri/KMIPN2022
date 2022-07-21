@@ -1,28 +1,53 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-  <div class="row">
-    <div class="col">
-        <div style="padding: 35px; background-color:red; border-radius:25px; margin-bottom:25px;color:white">
-            <label>User</label><label style="float: right;">15</label>
-        </div>
-        <div style="padding: 35px; background-color:green; border-radius:25px; margin-bottom:25px;color:white">
-            <label>User</label><label style="float: right;">15</label>
-        </div>
-        <div style="padding: 35px; background-color:blue; border-radius:25px;color:white">
-            <label>User</label><label style="float: right;">15</label>
+    <div class="card">
+        <div class="card-body">
+            <div class="row gap-2">
+                <div class="col">
+                  <div class="card">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="fa-duotone fa-user fa-3x text-primary"></i>
+                      <div class="d-flex flex-column ms-3">
+                        <h5 class="card-title fs-6 mb-0">Jumlah User</h5>
+                        <p class="card-text fs-4 fw-semibold">10</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <div class="card-body d-flex align-items-center">
+                      <i class="fa-duotone fa-square-envelope fa-3x text-success"></i>
+                      <div class="d-flex flex-column ms-3">
+                        <h5 class="card-title fs-6 mb-0">Pengaduan</h5>
+                        <p class="card-text fs-4 fw-semibold">15</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                      <div class="card-body d-flex align-items-center">
+                        <i class="fa-duotone fa-square-xmark fa-3x text-info"></i>
+                        <div class="d-flex flex-column ms-3">
+                          <h5 class="card-title fs-6 mb-0">Perizinan</h5>
+                          <p class="card-text fs-4 fw-semibold">30</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="row m-1 mt-4">
+                <div class="card">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="ms-3">
+                          <h5 class="card-title fs-6 mb-0">Perizinan</h5>
+                        </div>
+                      </div>
+                </div>
+              </div>
         </div>
     </div>
-    <div class="col">
-        <div class="card text-bg-dark mb-3" style="border-radius:25px">
-            <div class="card-header d-flex justify-content-center">Statitstik Pengunjung</div>
-            <div class="card-body d-flex justify-content-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" fill="currentColor" class="bi bi-bar-chart-fill" viewBox="0 0 16 16" >
-                    <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
-                  </svg>
-            </div>
-        </div>
-    </div>
-  </div>
 
 @endsection

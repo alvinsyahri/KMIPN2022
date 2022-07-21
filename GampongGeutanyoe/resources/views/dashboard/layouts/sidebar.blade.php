@@ -50,10 +50,10 @@
     </li>
 
     {{-- Laporan --}}
-    <li class="menu-item {{ Request::is('dashboard/laporan*') ? 'active' : '' }}">
-      <a href="/dashboard/laporan" class="menu-link">
+    <li class="menu-item {{ Request::is('dashboard/laporan-keuangan*') ? 'active' : '' }}">
+      <a href="/dashboard/laporan-keuangan" class="menu-link">
         <i class="fa-duotone fa-circle-dollar me-3"></i>
-        <div data-i18n="Analytics">Laporan</div>
+        <div data-i18n="Analytics">Laporan Keuangan</div>
       </a>
     </li>
     {{-- Perangkat Gampong --}}

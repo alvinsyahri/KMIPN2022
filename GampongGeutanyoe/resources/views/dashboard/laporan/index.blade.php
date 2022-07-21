@@ -2,7 +2,7 @@
 
 @section('content')
   {{-- Button --}}
-  <a class="btn btn-primary" href="/dashboard/perangkat-gampong/create">
+  <a class="btn btn-primary" href="/dashboard/laporan-keuangan/create">
     <i class="fa-regular fa-plus me-2"></i>
     Tambah
   </a>

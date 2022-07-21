@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardBeritaController;
+use App\Http\Controllers\DashboardSolusiController;
+use App\Http\Controllers\DashboardDataSuratController;
+use App\Http\Controllers\DashboardLaporanKeuanganController;
+use App\Http\Controllers\DashboardPerangkatGampongController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +20,7 @@ use App\Http\Controllers\DashboardBeritaController;
 */
 
 Route::prefix('/dashboard')->group(function () {
+
     Route::get('/', function () {
         return view('dashboard.index', [
             'title' => 'Dashboard'
@@ -25,63 +30,23 @@ Route::prefix('/dashboard')->group(function () {
     Route::resource('/berita', DashboardBeritaController::class);
 
     Route::prefix('/administrasi')->group(function () {
-        Route::prefix('/solusi')->group(function () {
-            Route::get('/', function () {
-                return view('dashboard.solusi.index',[
-                    'title' => 'Administrasi'
-                ]);
-            });
-            Route::get('/tambah', function () {
-                return view('dashboard.solusi.create',[
-                    'title' => 'Administrasi'
-                ]);
-            });
-        });
-        Route::prefix('/data-surat')->group(function () {
-            Route::get('/', function () {
-                return view('dashboard.datasurat.index',[
-                    'title' => 'Data Surat'
-                ]);
-            });
-            Route::get('/edit', function () {
-                return view('dashboard.datasurat.edit',[
-                    'title' => 'Data Surat'
-                ]);
-            });
-        });
+
+        Route::resource('/solusi', DashboardSolusiController::class);
+
+        Route::resource('/data-surat', DashboardDataSuratController::class);
+
         Route::get('/perizinan', function () {
             return view('dashboard.perizinan.index',[
                 'title' => 'Perizinan'
             ]);
         });
+
     });
 
-    Route::prefix('/laporan')->group(function () {
-        Route::get('/', function () {
-            return view('dashboard.laporan.index',[
-                'title' => 'Laporan'
-            ]);
-        });
-        Route::get('/tambah', function () {
-            return view('dashboard.laporan.create',[
-                'title' => 'Laporan'
-            ]);
-        });
-    });
+    Route::resource('/laporan-keuangan', DashboardLaporanKeuanganController::class);
 
     Route::resource('/users', AdminUserController::class);
 
-    Route::prefix('/perangkat-gampong')->group(function () {
-        Route::get('/', function () {
-            return view('dashboard.perangkat.index',[
-                'title' => 'Perangkat Gampong'
-            ]);
-        });
-        Route::get('/create', function () {
-            return view('dashboard.perangkat.create',[
-                'title' => 'Perangkat Gampong'
-            ]);
-        });
-    });
+    Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class);
 
 });

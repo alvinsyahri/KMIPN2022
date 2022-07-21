@@ -2,27 +2,14 @@
 
 @section('content')
 
-<style>
-    td{
-        padding: 10px;
-    }
-    table{
-        width: 50%;
-    }
-</style>
+{{-- Button --}}
+<a class="btn btn-primary" href="/dashboard/laporan-keuangan">
+    Back
+</a>
+{{-- End Button --}}
 
-<div class="card" style="width: auto; height:auto">
-    {{-- header content --}}
+<div class="card mt-3">
     <div class="card-body">
-      <h5 class="card-title pb-1">Keuangan</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Gampong Geutanyoe | Create</h6>
-      <hr>
-    {{-- end header content --}}
-
-    <a class="btn btn-dark" href="/dashboard/laporan">
-        Back
-      </a>
-
       {{-- form inputan --}}
         <form action="" class="mt-3">
             <div>
@@ -55,6 +42,11 @@
                     </table>
                 </div>
             </div>
+            {{-- Button --}}
+            <div class="d-flex justify-content-left" style="margin-left: 107px">
+                <button class="btn btn-primary px 4">Create</button>
+            </div>
+            {{-- End Button --}}
         </form>
         {{-- end form inputan --}}
 
