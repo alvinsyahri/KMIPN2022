@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardBeritaController;
 
 /*
@@ -68,18 +69,7 @@ Route::prefix('/dashboard')->group(function () {
         });
     });
 
-    Route::prefix('/users')->group(function () {
-        Route::get('/', function () {
-            return view('dashboard.user.index',[
-                'title' => 'Users'
-            ]);
-        });
-        Route::get('/tambah', function () {
-            return view('dashboard.user.create',[
-                'title' => 'Users'
-            ]);
-        });
-    });
+    Route::resource('/users', AdminUserController::class);
 
     Route::prefix('/perangkat-gampong')->group(function () {
         Route::get('/', function () {
@@ -87,7 +77,7 @@ Route::prefix('/dashboard')->group(function () {
                 'title' => 'Perangkat Gampong'
             ]);
         });
-        Route::get('/tambah', function () {
+        Route::get('/create', function () {
             return view('dashboard.perangkat.create',[
                 'title' => 'Perangkat Gampong'
             ]);

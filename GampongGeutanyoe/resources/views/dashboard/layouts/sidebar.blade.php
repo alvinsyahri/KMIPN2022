@@ -49,11 +49,11 @@
       </ul>
     </li>
 
-    {{-- Keuangan --}}
+    {{-- Laporan --}}
     <li class="menu-item {{ Request::is('dashboard/laporan*') ? 'active' : '' }}">
       <a href="/dashboard/laporan" class="menu-link">
         <i class="fa-duotone fa-circle-dollar me-3"></i>
-        <div data-i18n="Analytics">Keuangan</div>
+        <div data-i18n="Analytics">Laporan</div>
       </a>
     </li>
     {{-- Perangkat Gampong --}}

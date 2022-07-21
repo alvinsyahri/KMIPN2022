@@ -2,7 +2,7 @@
 
 @section('content')
   {{-- Button --}}
-  <a class="btn btn-primary" href="/dashboard/berita/create">
+  <a class="btn btn-primary" href="/dashboard/users/create">
     <i class="fa-regular fa-plus me-2"></i>
     Tambah
   </a>
@@ -13,8 +13,8 @@
       <table id="myTable" class="table responsive nowrap table-bordered table-striped align-middle" style="width:100%">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Nama</th>
+            <th>ID</th>
+            <th>Nama Lengkap</th>
             <th>Username</th>
             <th>Alamat</th>
             <th>No. Hp</th>
@@ -29,9 +29,9 @@
             <td>Jalan haji nafi matangkuli</td>
             <td>0812345678123</td>
             <td>
-              <a href="#"><i class="btn btn-sm btn-dark fa-regular fa-unlock-keyhole"></i></a>
-              <a href="#"><i class="btn btn-sm btn-warning fa-regular fa-pen-to-square"></i></a>
-              <a href="#"><i class="btn btn-sm btn-danger fa-regular fa-xmark fa-lg"></i></a>
+              <a href="#" class="btn btn-sm btn-dark"><i class="fa-regular fa-unlock-keyhole"></i></a>
+              <a href="#" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+              <a href="#" class="btn btn-sm btn-danger"><i class="fa-regular fa-xmark fa-lg"></i></a>
             </td>
           </tr>
         </tbody>
