@@ -24,7 +24,7 @@
     </li>
 
     {{-- Administrasi --}}
-    <li class="menu-item {{ Request::is('dashboard/administrasi*') ? 'active' : '' }}">
+    <li class="menu-item {{ Request::is('dashboard/administrasi*') ? 'active open' : '' }}">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="fa-duotone fa-envelope me-3"></i>
         <div data-i18n="Layouts">Administrasi</div>

@@ -11,11 +11,16 @@
     }
 </style>
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Library</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+  </nav>
 <div class="card" style="width: auto; height:auto">
     {{-- header content --}}
     <div class="card-body">
-      <h5 class="card-title pb-1">Berita</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Gampong Geutanyoe | Show</h6>
       <hr>
     {{-- end header content --}}
 

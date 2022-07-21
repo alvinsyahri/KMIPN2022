@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardBeritaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ Route::prefix('/dashboard')->group(function () {
         ]);
     });
 
-    Route::resource('/berita', BeritaController::class);
+    Route::resource('/berita', DashboardBeritaController::class);
 
     Route::prefix('/administrasi')->group(function () {
         Route::prefix('/solusi')->group(function () {
