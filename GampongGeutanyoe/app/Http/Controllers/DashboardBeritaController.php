@@ -26,7 +26,7 @@ class DashboardBeritaController extends Controller
     public function create()
     {
         return view('dashboard.berita.create',[
-            'title' => 'Berita'
+            'title' => 'Tambah Berita Baru'
         ]);
     }
 

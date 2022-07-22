@@ -1,46 +1,107 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-  {{-- Button --}}
-  <a class="btn btn-primary" href="/dashboard/berita">
-    Back
-  </a>
-  {{-- End Button --}}
+  <div class="row">
+    <div class="col col-md-9">
+      {{-- Button --}}
+      <a class="btn btn-outline-secondary" href="/dashboard/berita">
+        <i class="fa-regular fa-chevron-left me-2"></i>
+        Kembali
+      </a>
+      {{-- End Button --}}
 
-  <div class="card mt-3">
-    <div class="card-body">
-      {{-- form inputan --}}
-      <form action="" class="mt-3">
-        <div>
-          <div class="input-group mb-3">
-            <table>
-              <tr>
-                <td><label for="">Judul</label></td>
-                <td><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></td>
-              </tr>
-              <tr>
-                <td><label for="">Thumbnail</label></td>
-                <td><input type="file" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"></td>
-              </tr>
-              <tr>
-                <td><label for="">Text</label></td>
-                <td><input id="x" type="hidden" name="content">
-                  <trix-editor input="x"></trix-editor>
-                </td>
-              </tr>
-            </table>
-          </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          {{-- Form Berita --}}
+          <form action="{{ route('berita.store') }}" method="post">
+            @csrf
+            <div class="mb-3">
+              <label for="judul" class="form-label">Judul</label>
+              <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" id="judul" value="{{ old('judul') }}" autofocus required>
+              @error('judul')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+            <div class="mb-3">
+              <label for="slug" class="form-label">Slug</label>
+              <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="slug" value="{{ old('slug') }}" required>
+              @error('slug')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+            <div class="mb-3">
+              <label for="id_kategori" class="form-label">Category</label>
+              <select class="form-select" name="id_kategori" id="id_kategori">
+                {{-- @foreach ($categories as $category)
+                  @if (old('id_kategori') == $category->id)
+                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                  @else
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                  @endif
+                @endforeach --}}
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="thumbnail" class="form-label">Thumbnail</label>
+              <img class="img-preview img-fluid mb-3 col-sm-5">
+              <input class="form-control @error('thumbnail') is-invalid @enderror" type="file" name="thumbnail" id="thumbnail" onchange="previewImage()">
+              @error('thumbnail')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+            <div class="mb-3">
+              <label for="isi" class="form-label">Isi Berita</label>
+              @error('isi')
+                <p class="text-danger">{{ $message }}</p>
+              @enderror
+              <input id="isi" type="hidden" name="isi" value="{{ old('isi') }}">
+              <trix-editor input="isi"></trix-editor>
+            </div>
+            <div class="text-end">
+              <button type="submit" class="btn btn-primary">Buat Berita</button>
+            </div>
+          </form>
+          {{-- End Form Berita --}}
         </div>
+      </div>
+    </div>
+  </div>
 
-        {{-- Button --}}
-        <div class="d-flex justify-content-left" style="margin-left: 100px">
-          <button class="btn btn-primary px 4">Create</button>
-        </div>
-        {{-- End Button --}}
+  <script>
+    // const title = document.querySelector('#title');
+    // const slug = document.querySelector('#slug');
 
-      </form>
-      {{-- end form inputan --}}
+    // title.addEventListener('change', function() {
+    //   fetch('/dashboard/posts/createSlug?title=' + title.value)
+    //     .then(response => response.json())
+    //     .then(data => slug.value = data.slug)
+    // });
 
-      {{-- Trix JS --}}
-      <script type="text/javascript" src="{{ asset('js/trix.js') }}"></script>
-    @endsection
+    // document.addEventListener('trix-file-accept', function(e) {
+    //   e.preventDefault();
+    // });
+
+    function previewImage() {
+      const image = document.querySelector('#thumbnail');
+      const imgPreview = document.querySelector('.img-preview');
+
+      imgPreview.style.display = 'block';
+
+      const oFReader = new FileReader();
+      oFReader.readAsDataURL(image.files[0]);
+
+      oFReader.onload = function(OFREvent){
+        imgPreview.src = OFREvent.target.result;
+      }
+    }
+  </script>
+
+  {{-- Trix JS --}}
+  <script type="text/javascript" src="{{ asset('js/trix.js') }}"></script>
+@endsection
