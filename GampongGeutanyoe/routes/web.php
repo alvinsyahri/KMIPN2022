@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardBeritaController;
 use App\Http\Controllers\DashboardSolusiController;
@@ -19,34 +20,40 @@ use App\Http\Controllers\DashboardPerangkatGampongController;
 |
 */
 
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'index')->name('login')->middleware('guest');
+    Route::post('/login', 'authenticate');
+    Route::post('/logout', 'logout');
+});
+
 Route::prefix('/dashboard')->group(function () {
 
     Route::get('/', function () {
         return view('dashboard.index', [
             'title' => 'Dashboard'
         ]);
-    });
+    })->middleware('auth');
 
-    Route::resource('/berita', DashboardBeritaController::class);
+    Route::resource('/berita', DashboardBeritaController::class)->middleware('auth');
 
     Route::prefix('/administrasi')->group(function () {
 
-        Route::resource('/solusi', DashboardSolusiController::class);
+        Route::resource('/solusi', DashboardSolusiController::class)->middleware('auth');
 
-        Route::resource('/data-surat', DashboardDataSuratController::class);
+        Route::resource('/data-surat', DashboardDataSuratController::class)->middleware('auth');
 
         Route::get('/perizinan', function () {
             return view('dashboard.perizinan.index',[
                 'title' => 'Perizinan'
             ]);
-        });
+        })->middleware('auth');
 
     });
 
-    Route::resource('/laporan-keuangan', DashboardLaporanKeuanganController::class);
+    Route::resource('/laporan-keuangan', DashboardLaporanKeuanganController::class)->middleware('auth');
 
-    Route::resource('/users', AdminUserController::class);
+    Route::resource('/users', AdminUserController::class)->middleware('auth');
 
-    Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class);
+    Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class)->middleware('auth');
 
 });

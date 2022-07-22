@@ -17,25 +17,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  {{-- Datatables Style --}}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
-
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('vendor/css/core.css') }}" class="template-customizer-core-css" />
   <link rel="stylesheet" href="{{ asset('vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
   <link rel="stylesheet" href="{{ asset('css/demo.css') }}" />
 
-  {{-- trix css --}}
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/trix.css') }}">
-
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="{{ asset('vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
-  {{-- Chart JS --}}
-
-
   <!-- Page CSS -->
+  <!-- Page -->
+  <link rel="stylesheet" href="{{ asset('vendor/css/pages/page-auth.css') }}" />
 
   <!-- Helpers -->
   <script src="{{ asset('vendor/js/helpers.js') }}"></script>
@@ -44,46 +36,51 @@
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="{{ asset('js/config.js') }}"></script>
 
-  <title>Gampong Geutanyoe | Dashboard</title>
+  <title>Gampong Geutanyoe | Login</title>
 </head>
 
 <body>
 
-  <!-- Layout wrapper -->
-  <div class="layout-wrapper layout-content-navbar">
-    <div class="layout-container">
-      <!-- Sidebar -->
-      @include('dashboard.layouts.sidebar')
-      <!-- / Sidebar -->
+  <div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner">
+        <!-- Login -->
+        <div class="card">
+          <div class="card-body">
+            <!-- Logo -->
+            <div class="app-brand justify-content-center">
+              <a href="index.html" class="app-brand-link gap-2">
+                Gampong Geutanyoe
+              </a>
+            </div>
+            <!-- /Logo -->
+            <h4 class="mb-2">Selamat Datang! 👋</h4>
 
-      <!-- Layout container -->
-      <div class="layout-page">
-        <!-- Navbar -->
-        @include('dashboard.layouts.navbar')
-        <!-- / Navbar -->
-
-        <!-- Content wrapper -->
-        <div class="content-wrapper">
-          <div class="container-xxl flex-grow-1 container-p-y">
-            <h1 class="fw-bold fs-2 mb-5">{{ $title }}</h1>
-
-            <!-- Content -->
-            <main>
-              @yield('content')
-            </main>
+            <form id="formAuthentication" action="/login" method="POST">
+              @csrf
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username anda" autofocus />
+              </div>
+              <div class="mb-1">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
+              </div>
+              <div class="text-end mb-3">
+                <a href="auth-forgot-password-basic.html">
+                  <small>Lupa Password?</small>
+                </a>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
+              </div>
+            </form>
           </div>
-          <!-- / Content -->
-          <div class="content-backdrop fade"></div>
         </div>
-        <!-- / Content wrapper -->
+        <!-- /Login -->
       </div>
-      <!-- / Layout page -->
     </div>
-
-    <!-- Overlay -->
-    <div class="layout-overlay layout-menu-toggle"></div>
   </div>
-  <!-- / Layout wrapper -->
 
   <!-- Core JS -->
   <!-- build:js assets/vendor/js/core.js -->
@@ -96,11 +93,6 @@
 
   <!-- Main JS -->
   <script src="{{ asset('js/main.js') }}"></script>
-
-  {{-- Datatables JS --}}
-  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-  <script src="{{ asset('js/datatables.js') }}"></script>
 </body>
 
 </html>

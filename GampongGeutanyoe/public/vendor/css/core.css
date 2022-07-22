@@ -15746,7 +15746,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
   width: 100%;
   height: 100%;
 }
-.avatar .avatar-initial {
+/* .avatar .avatar-initial {
   position: absolute;
   top: 0;
   left: 0;
@@ -15781,7 +15781,7 @@ html:not(.layout-footer-fixed) .content-wrapper {
 }
 .avatar.avatar-busy:after {
   background-color: #ff3e1d;
-}
+} */
 
 .pull-up {
   transition: all 0.25s ease;
