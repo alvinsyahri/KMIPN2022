@@ -43,7 +43,7 @@
         </li>
         <li class="menu-item {{ Request::is('dashboard/administrasi/perizinan*') ? 'active' : '' }}">
           <a href="/dashboard/administrasi/perizinan" class="menu-link">
-            <div data-i18n="perizinan">Perizinan</div>
+            <div data-i18n="perizinan">Perizinan Tamu</div>
           </a>
         </li>
       </ul>

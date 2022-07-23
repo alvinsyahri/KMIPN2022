@@ -23,18 +23,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Zacky Shifa</td>
-            <td>Z4cky_</td>
-            <td>Jalan haji nafi matangkuli</td>
-            <td>0812345678123</td>
-            <td>
-              <a href="#" class="btn btn-sm btn-dark"><i class="fa-regular fa-unlock-keyhole"></i></a>
-              <a href="#" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
-              <a href="#" class="btn btn-sm btn-danger"><i class="fa-regular fa-xmark fa-lg"></i></a>
-            </td>
-          </tr>
+          @foreach ($users as $user)
+            <tr>
+              <td>{{ $user->id }}</td>
+              <td>{{ $user->nama }}</td>
+              <td>{{ '@' . $user->username }}</td>
+              <td>{{ $user->alamat }}</td>
+              <td>{{ $user->no_hp }}</td>
+              <td>
+                <a href="#" class="btn btn-sm btn-dark"><i class="fa-regular fa-unlock-keyhole"></i></a>
+                <a href="#" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                @if (!$user->is_admin)
+                  <a href="#" class="btn btn-sm btn-danger"><i class="fa-regular fa-trash-can fa-lg"></i></a>
+                @endif
+              </td>
+            </tr>
+          @endforeach
         </tbody>
       </table>
       {{-- End Table --}}

@@ -39,7 +39,7 @@
                 <td>
                   <a href="#" class="btn btn-sm btn-info"><i class="fa-regular fa-eye"></i></a>
                   <a href="#" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
-                  <a href="#" class="btn btn-sm btn-danger"><i class="fa-regular fa-xmark fa-lg"></i></a>
+                  <a href="#" class="btn btn-sm btn-danger"><i class="fa-regular fa-trash-can fa-lg"></i></a>
                 </td>
               </tr>
             </tbody>

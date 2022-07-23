@@ -1,12 +1,18 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-  {{-- Button --}}
-  <a class="btn btn-primary" href="/dashboard/perangkat-gampong/create">
-    <i class="fa-regular fa-plus me-2"></i>
-    Tambah
-  </a>
-  {{-- End Button --}}
+  <div class="row">
+    <div class="col">
+      <a class="btn btn-primary" href="/dashboard/perangkat-gampong/create">
+        <i class="fa-regular fa-plus me-2"></i>
+        Tambah
+      </a>
+      <a class="btn btn-dark ms-2" href="/dashboard/berita/kategori">
+        <i class="fa-regular fa-user-tie me-2"></i>
+        Kelola Jabatan
+      </a>
+    </div>
+  </div>
   <div class="card mt-3">
     <div class="card-body">
       {{-- Table --}}
@@ -32,7 +38,7 @@
             <td>2020-2025</td>
             <td>
               <a href="#" class="btn btn-sm btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
-              <a href="#" class="btn btn-sm btn-danger"><i class="fa-regular fa-xmark fa-lg"></i></a>
+              <a href="#" class="btn btn-sm btn-danger"><i class="fa-regular fa-trash-can fa-lg"></i></a>
             </td>
           </tr>
         </tbody>

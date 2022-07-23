@@ -22,6 +22,11 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Administrator',
             'username' => 'admin',
             'password' => Hash::make('admin'),
+            'alamat' => fake()->city(),
+            'no_hp' => fake()->unique()->numerify('852########'),
+            'is_admin' => 1,
         ]);
+
+        User::factory(10)->create();
     }
 }

@@ -15,7 +15,8 @@ class AdminUserController extends Controller
     public function index()
     {
         return view('dashboard.user.index',[
-            'title' => 'Users'
+            'title' => 'Users',
+            'users' => User::all(),
         ]);
     }
 

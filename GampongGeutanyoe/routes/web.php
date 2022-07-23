@@ -44,7 +44,7 @@ Route::prefix('/dashboard')->group(function () {
 
         Route::get('/perizinan', function () {
             return view('dashboard.perizinan.index',[
-                'title' => 'Perizinan'
+                'title' => 'Perizinan Tamu'
             ]);
         })->middleware('auth');
 
