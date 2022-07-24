@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -28,7 +29,8 @@ class DashboardBeritaController extends Controller
     public function create()
     {
         return view('dashboard.berita.create',[
-            'title' => 'Tambah Berita Baru'
+            'title' => 'Tambah Berita Baru',
+            'kategoris' => Kategori::all(),
         ]);
     }
 

@@ -37,7 +37,7 @@ Route::prefix('/dashboard')->group(function () {
 
     
     Route::prefix('/berita')->group(function () {
-        Route::get('/berita/checkSlug', [DashboardBeritaController::class, 'checkSlug'])->middleware('auth');
+        Route::get('/data-berita/checkSlug', [DashboardBeritaController::class, 'checkSlug'])->middleware('auth');
         Route::resource('/data-berita', DashboardBeritaController::class)->middleware('auth');
         
         Route::get('/kategori-berita/createSlug', [DashboardKategoriController::class, 'checkSlug'])->middleware('auth');

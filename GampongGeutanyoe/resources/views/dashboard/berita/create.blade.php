@@ -36,13 +36,13 @@
             <div class="mb-3">
               <label for="id_kategori" class="form-label">Category</label>
               <select class="form-select" name="id_kategori" id="id_kategori">
-                {{-- @foreach ($categories as $category)
-                  @if (old('id_kategori') == $category->id)
-                    <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                @foreach ($kategoris as $kategori)
+                  @if (old('id_kategori') == $kategori->id)
+                    <option value="{{ $kategori->id }}" selected>{{ $kategori->nama }}</option>
                   @else
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <option value="{{ $kategori->id }}">{{ $kategori->nama }}</option>
                   @endif
-                @endforeach --}}
+                @endforeach
               </select>
             </div>
             <div class="mb-3">
@@ -78,7 +78,7 @@
     const slug = document.querySelector('#slug');
 
     judul.addEventListener('change', function() {
-      fetch('/dashboard/berita/checkSlug?judul=' + judul.value)
+      fetch('/dashboard/berita/data-berita/checkSlug?judul=' + judul.value)
         .then(response => response.json())
         .then(data => slug.value = data.slug)
     });
