@@ -15,12 +15,26 @@
         <div data-i18n="Analytics">Dashboard</div>
       </a>
     </li>
+
     {{-- Berita --}}
-    <li class="menu-item {{ Request::is('dashboard/berita*') ? 'active' : '' }}">
-      <a href="/dashboard/berita" class="menu-link">
+    <li class="menu-item {{ Request::is('dashboard/berita*') ? 'active open' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="fa-duotone fa-newspaper me-3"></i>
-        <div data-i18n="Analytics">Berita</div>
+        <div data-i18n="Layouts">Berita</div>
       </a>
+
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::is('dashboard/berita/data-berita*') ? 'active' : '' }}">
+          <a href="/dashboard/berita/data-berita" class="menu-link">
+            <div data-i18n="solusi">Data Berita</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('dashboard/berita/kategori-berita*') ? 'active' : '' }}">
+          <a href="/dashboard/berita/kategori-berita" class="menu-link">
+            <div data-i18n="data surat">Kategori Berita</div>
+          </a>
+        </li>
+      </ul>
     </li>
 
     {{-- Administrasi --}}

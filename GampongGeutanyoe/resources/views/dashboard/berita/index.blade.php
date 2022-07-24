@@ -3,16 +3,24 @@
 @section('content')
   <div class="row">
     <div class="col">
-      <a class="btn btn-primary" href="/dashboard/berita/create">
+      @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ session('success') }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      @endif
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <a class="btn btn-primary" href="{{ route('data-berita.create') }}">
         <i class="fa-regular fa-plus me-2"></i>
         Tambah
       </a>
-      <a class="btn btn-dark ms-2" href="/dashboard/berita/kategori"> 
-        <i class="fa-regular fa-grid-2 me-2"></i>
-        Kelola Kategori
-      </a>
     </div>
   </div>
+
   <div class="row">
     <div class="col">
       <div class="card mt-3">

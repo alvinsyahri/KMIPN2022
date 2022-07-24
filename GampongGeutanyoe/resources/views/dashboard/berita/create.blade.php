@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col col-md-9">
       {{-- Button --}}
-      <a class="btn btn-outline-secondary" href="/dashboard/berita">
+      <a class="btn btn-outline-secondary" href="{{ route('data-berita.index') }}">
         <i class="fa-regular fa-chevron-left me-2"></i>
         Kembali
       </a>
@@ -13,7 +13,7 @@
       <div class="card mt-3">
         <div class="card-body">
           {{-- Form Berita --}}
-          <form action="{{ route('berita.store') }}" method="post">
+          <form action="{{ route('data-berita.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
               <label for="judul" class="form-label">Judul</label>
@@ -74,18 +74,18 @@
   </div>
 
   <script>
-    // const title = document.querySelector('#title');
-    // const slug = document.querySelector('#slug');
+    const judul = document.querySelector('#judul');
+    const slug = document.querySelector('#slug');
 
-    // title.addEventListener('change', function() {
-    //   fetch('/dashboard/posts/createSlug?title=' + title.value)
-    //     .then(response => response.json())
-    //     .then(data => slug.value = data.slug)
-    // });
+    judul.addEventListener('change', function() {
+      fetch('/dashboard/berita/checkSlug?judul=' + judul.value)
+        .then(response => response.json())
+        .then(data => slug.value = data.slug)
+    });
 
-    // document.addEventListener('trix-file-accept', function(e) {
-    //   e.preventDefault();
-    // });
+    document.addEventListener('trix-file-accept', function(e) {
+      e.preventDefault();
+    });
 
     function previewImage() {
       const image = document.querySelector('#thumbnail');
@@ -96,7 +96,7 @@
       const oFReader = new FileReader();
       oFReader.readAsDataURL(image.files[0]);
 
-      oFReader.onload = function(OFREvent){
+      oFReader.onload = function(OFREvent) {
         imgPreview.src = OFREvent.target.result;
       }
     }
