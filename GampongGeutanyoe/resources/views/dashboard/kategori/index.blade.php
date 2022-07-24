@@ -90,7 +90,7 @@
                 </div>
                 {{-- / Modal Edit Kategori --}}
 
-                {{-- Hapus Modal Kategori --}}
+                {{-- Modal Hapus Kategori --}}
                 <div class="modal fade" id="modalHapus{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -112,7 +112,7 @@
                     </div>
                   </div>
                 </div>
-                {{-- / Hapus Modal Kategori --}}
+                {{-- / Modal Hapus Kategori --}}
               @endforeach
             </tbody>
           </table>

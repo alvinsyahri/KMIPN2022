@@ -12,6 +12,16 @@ class Kategori extends Model
 
     protected $guarded = ['id'];
 
+    public function beritas()
+    {
+        return $this->hasMany(Berita::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function sluggable(): array
     {
         return [

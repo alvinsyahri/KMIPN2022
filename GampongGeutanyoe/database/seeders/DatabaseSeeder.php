@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Kategori;
 use App\Models\User;
+use App\Models\Berita;
+use App\Models\Kategori;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -39,5 +40,7 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Pengumuman',
             'slug' => 'pengumuman'
         ]);
+
+        Berita::factory(10)->create();
     }
 }
