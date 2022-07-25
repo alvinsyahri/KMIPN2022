@@ -1,14 +1,16 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DashboardBeritaController;
 use App\Http\Controllers\DashboardSolusiController;
-use App\Http\Controllers\DashboardDataSuratController;
 use App\Http\Controllers\DashboardKategoriController;
+use App\Http\Controllers\DashboardDataSuratController;
 use App\Http\Controllers\DashboardLaporanKeuanganController;
 use App\Http\Controllers\DashboardPerangkatGampongController;
+use App\Models\Berita;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +33,9 @@ Route::prefix('/dashboard')->group(function () {
 
     Route::get('/', function () {
         return view('dashboard.index', [
-            'title' => 'Dashboard'
+            'title' => 'Dashboard',
+            'total_users' => User::count(),
+            'total_berita' => Berita::count()
         ]);
     })->middleware('auth');
 

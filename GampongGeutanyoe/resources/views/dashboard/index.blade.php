@@ -6,10 +6,21 @@
       <div class="col">
         <div class="card">
           <div class="card-body d-flex align-items-center">
-            <i class="fa-duotone fa-user fa-3x text-primary"></i>
+            <i class="fa-duotone fa-user-group fa-3x text-primary"></i>
             <div class="d-flex flex-column ms-3">
               <h5 class="card-title fs-6 mb-0">Jumlah User</h5>
-              <p class="card-text fs-4 fw-semibold">10</p>
+              <p class="card-text fs-4 fw-semibold">{{ $total_users }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body d-flex align-items-center">
+            <i class="fa-duotone fa-newspaper fa-3x text-dark"></i>
+            <div class="d-flex flex-column ms-3">
+              <h5 class="card-title fs-6 mb-0">Jumlah Berita</h5>
+              <p class="card-text fs-4 fw-semibold">{{ $total_berita }}</p>
             </div>
           </div>
         </div>
