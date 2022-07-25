@@ -12,7 +12,7 @@
 
       <div class="card mt-3">
         <div class="card-body">
-          <form action="/dashboard/posts/{{ $berita->slug }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('data-berita.update', $berita->slug) }}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="mb-3">
