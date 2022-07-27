@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
@@ -28,7 +29,8 @@ class AdminUserController extends Controller
     public function create()
     {
         return view('dashboard.user.create',[
-            'title' => 'Create New User'
+            'title' => 'Tambah User Baru',
+            'users' => User::all(),
         ]);
     }
 
@@ -40,7 +42,22 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'username' => ['required', 'min:6', 'max:16', 'unique:users'],
+            'password' => 'required|min:5|max:255',
+            'alamat' => 'required|max:255',
+            'no_hp' => 'required|max:13',
+            'role' => 'required'
+        ]);
+
+        // $validatedData['password'] = bcrypt($validatedData['password']);
+        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['role'] = intval($validatedData['role']);
+        
+        User::create($validatedData);
+
+        return redirect('/dashboard/user')->with('success', 'User baru berhasil dibuat!');
     }
 
     /**
@@ -62,7 +79,10 @@ class AdminUserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('dashboard.user.edit', [
+            'title' => 'Edit User',
+            'user' => $user
+        ]);
     }
 
     /**
@@ -74,7 +94,22 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $rules = [
+            'nama' => 'required|max:255',
+            'alamat' => 'required|max:255',
+            'no_hp' => 'required|max:13',
+            'role' => 'required'
+        ];
+
+        if ($request->username != $user->username) {
+            $rules['username'] = ['required', 'min:6', 'max:16', 'unique:users'];
+        }
+
+        $validatedData = $request->validate($rules);
+        
+        User::where('id', $user->id)->update($validatedData);
+        
+        return redirect('/dashboard/user')->with('success', 'User berhasil diperbarui!');
     }
 
     /**
@@ -84,6 +119,12 @@ class AdminUserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
+    {
+        User::destroy($user->id);
+        return redirect('/dashboard/user')->with('success', "User $user->username berhasil dihapus!");
+    }
+
+    public function resetPassword()
     {
         //
     }

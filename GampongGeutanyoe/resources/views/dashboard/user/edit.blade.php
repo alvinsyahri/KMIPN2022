@@ -11,11 +11,12 @@
       <div class="card mt-3">
         <div class="card-body">
           {{-- Form Berita --}}
-          <form action="{{ route('user.store') }}" method="post">
+          <form action="{{ route('user.update', $user->id) }}" method="post">
+            @method('put')
             @csrf
             <div class="mb-3">
               <label for="nama" class="form-label">Nama Lengkap</label>
-              <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" value="{{ old('nama') }}" autofocus required>
+              <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" value="{{ old('nama', $user->nama) }}" autofocus required>
               @error('nama')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -25,7 +26,7 @@
 
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
-              <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="username" value="{{ old('username') }}" required>
+              <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="username" value="{{ old('username', $user->username) }}" required>
               @error('username')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -34,23 +35,8 @@
             </div>
 
             <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <div id="pwd" class="input-group">
-                <input type="password" class="form-control border-end-0 @error('password') is-invalid @enderror" name="password" id="password" value="{{ old('password') }}" required>
-                <span class="input-group-text cursor-pointer">
-                  <i class="fa-regular fa-eye-slash" id="togglePassword"></i>
-                </span>
-                @error('password')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-            </div>
-
-            <div class="mb-3">
               <label for="alamat" class="form-label">Alamat</label>
-              <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat" value="{{ old('alamat') }}" required>
+              <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat" value="{{ old('alamat', $user->alamat) }}" required>
               @error('alamat')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -62,7 +48,7 @@
               <label for="no_hp" class="form-label">No. HP</label>
               <div class="input-group">
                 <span class="input-group-text">+62</span>
-                <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" value="{{ old('no_hp') }}" required>
+                <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" value="{{ old('no_hp', $user->no_hp) }}" required>
                 @error('no_hp')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -81,7 +67,7 @@
               </select>
             </div>
             <div class="text-end">
-              <button type="submit" class="btn btn-primary">Tambah User</button>
+              <button type="submit" class="btn btn-primary">Update User</button>
             </div>
           </form>
           {{-- End Form Berita --}}

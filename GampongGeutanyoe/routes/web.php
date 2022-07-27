@@ -60,7 +60,8 @@ Route::prefix('/dashboard')->group(function () {
 
     Route::resource('/laporan-keuangan', DashboardLaporanKeuanganController::class)->middleware('auth');
 
-    Route::resource('/users', AdminUserController::class)->middleware('auth');
+    Route::resource('/user', AdminUserController::class)->except('show')->middleware('auth');
+    Route::post('/user/reset-password', [AdminUserController::class, 'resetPassword'])->middleware('auth');
 
     Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class)->middleware('auth');
 

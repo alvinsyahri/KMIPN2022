@@ -1,5 +1,5 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-  <div class="app-brand demo">
+  <div class="app-brand">
     <a href="index.html" class="app-brand-link fs-4 fw-bold text-center">
       Gampong Geutanyoe
     </a>
@@ -77,11 +77,11 @@
         <div data-i18n="Analytics">Perangkat Gampong</div>
       </a>
     </li>
-    {{-- Users --}}
-    <li class="menu-item {{ Request::is('dashboard/users*') ? 'active' : '' }}">
-      <a href="/dashboard/users" class="menu-link">
+    {{-- User --}}
+    <li class="menu-item {{ Request::is('dashboard/user*') ? 'active' : '' }}">
+      <a href="/dashboard/user" class="menu-link">
         <i class="fa-duotone fa-user-group fa-sm me-3"></i>
-        <div data-i18n="Analytics">Users</div>
+        <div data-i18n="Analytics">User</div>
       </a>
     </li>
   </ul>

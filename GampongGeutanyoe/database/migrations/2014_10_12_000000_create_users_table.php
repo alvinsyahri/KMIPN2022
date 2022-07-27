@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('alamat')->nullable();
             $table->string('no_hp', 13)->nullable();
-            $table->boolean('is_admin')->default(0);
+            $table->tinyInteger('role')->default(0); // 0 => warga, 1 => admin, 2 => sekdes, 3 => bendes
             $table->rememberToken();
             $table->timestamps();
         });

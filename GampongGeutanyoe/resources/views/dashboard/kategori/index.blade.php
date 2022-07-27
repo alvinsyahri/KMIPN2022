@@ -40,12 +40,12 @@
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $kategori->nama }}</td>
                   <td>
-                    <a href="#modalEdit{{ $loop->iteration }}" class="btn btn-sm btn-warning" data-bs-toggle="modal">
+                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modalEdit{{ $loop->iteration }}">
                       <i class="fa-regular fa-pen-to-square"></i>
-                    </a>
-                    <a href="#modalHapus{{ $loop->iteration }}" class="btn btn-sm btn-danger" data-bs-toggle="modal">
+                    </button>
+                    <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapus{{ $loop->iteration }}">
                       <i class="fa-regular fa-trash-can fa-lg"></i>
-                    </a>
+                    </button>
                   </td>
                 </tr>
 

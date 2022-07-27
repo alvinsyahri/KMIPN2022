@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
             'alamat' => fake()->city(),
             'no_hp' => fake()->unique()->numerify('852########'),
-            'is_admin' => 1,
+            'role' => 1,
         ]);
 
         User::factory(10)->create();
