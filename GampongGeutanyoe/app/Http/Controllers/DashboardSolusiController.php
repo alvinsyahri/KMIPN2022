@@ -14,7 +14,7 @@ class DashboardSolusiController extends Controller
     public function index()
     {
         return view('dashboard.solusi.index',[
-            'title' => 'Administrasi'
+            'title' => 'Solusi'
         ]);
     }
 
@@ -25,9 +25,7 @@ class DashboardSolusiController extends Controller
      */
     public function create()
     {
-        return view('dashboard.solusi.create',[
-            'title' => 'Administrasi'
-        ]);
+        //
     }
 
     /**

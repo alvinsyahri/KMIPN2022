@@ -44,6 +44,23 @@
   <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
       <div class="authentication-inner">
+        <div class="row">
+          <div class="col">
+            @if (session()->has('success'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            @endif
+
+            @if (session()->has('loginError'))
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('loginError') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            @endif
+          </div>
+        </div>
         <!-- Login -->
         <div class="card">
           <div class="card-body">
@@ -60,11 +77,21 @@
               @csrf
               <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username anda" autofocus />
+                <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Masukkan username anda" autofocus />
+                @error('username')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
               </div>
-              <div class="mb-1">
+              <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
+                <div id="pwd" class="input-group">
+                  <input type="password" class="form-control border-end-0" name="password" id="password" value="{{ old('password') }}" required>
+                  <span class="input-group-text cursor-pointer">
+                    <i class="fa-regular fa-eye-slash" id="togglePassword"></i>
+                  </span>
+                </div>
               </div>
               <div class="text-end mb-3">
                 <a href="auth-forgot-password-basic.html">
@@ -89,10 +116,12 @@
   <script src="{{ asset('vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
   <script src="{{ asset('vendor/js/menu.js') }}"></script>
-  <!-- endbuild -->
 
   <!-- Main JS -->
   <script src="{{ asset('js/main.js') }}"></script>
+
+  {{-- Toggle Show/Hide Password --}}
+  <script src="{{ asset('js/show-hide-password.js') }}"></script>
 </body>
 
 </html>
