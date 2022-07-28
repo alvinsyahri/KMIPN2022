@@ -63,7 +63,7 @@ Route::get('/keuangan', function () {
 });
 
 Route::get('/berita', [BeritaController::class, 'index']);
-Route::get('berita/{single:slug}', [BeritaController::class, 'show']);
+Route::get('berita/{berita:slug}', [BeritaController::class, 'show']);
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login')->middleware('guest');

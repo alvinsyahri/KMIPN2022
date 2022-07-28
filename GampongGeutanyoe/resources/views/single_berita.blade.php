@@ -1,13 +1,25 @@
 @extends('layouts.main')
 
 @section('content')
-  <article>
-    <h1 class="card-title" style="text-align: center; ">{{ $berita->judul }}</h1>
-    <div class="card-body mt-3">
-      <img src="{{ asset('images/sungai.jpg') }}" class="card-img-top" height="300px">
-      <p class="card-text mt-4">{{ $berita['isi'] }}</p>
+  <div class="container mb-5">
+    <div class="row mb-5">
+      <div class="col">
+        <a href="/berita" class="btn btn-secondary rounded-3">
+          <i class="fa-regular fa-chevron-left me-2"></i>
+          Kembali
+        </a>
+      </div>
     </div>
-  </article>
-
-  <a href="/berita" class="btn btn-dark mt-4">BACK</a>
+    <div class="row">
+      <div class="col">
+        <article>
+          <h1 class="card-title text-center">{{ $berita->judul }}</h1>
+          <div class="card-body mt-3">
+            <img src="{{ asset('images/sungai.jpg') }}" class="card-img-top" height="300px">
+            <p class="card-text mt-4">{!! $berita->isi !!}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
 @endsection

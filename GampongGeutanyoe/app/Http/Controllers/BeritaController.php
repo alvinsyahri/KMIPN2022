@@ -21,7 +21,7 @@ class BeritaController extends Controller
     {
         return view('single_berita', [
             "title" => "Single Berita",
-            "beritas" => $berita
+            "berita" => $berita
         ]);
     }
 }
