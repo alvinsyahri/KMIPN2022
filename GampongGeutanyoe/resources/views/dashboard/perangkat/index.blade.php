@@ -7,12 +7,9 @@
         <i class="fa-regular fa-plus me-2"></i>
         Tambah
       </a>
-      <a class="btn btn-dark ms-2" href="/dashboard/berita/kategori">
-        <i class="fa-regular fa-user-tie me-2"></i>
-        Kelola Jabatan
-      </a>
     </div>
   </div>
+  
   <div class="card mt-3">
     <div class="card-body">
       {{-- Table --}}

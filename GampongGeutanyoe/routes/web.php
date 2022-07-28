@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardBeritaController;
 use App\Http\Controllers\DashboardSolusiController;
 use App\Http\Controllers\DashboardKategoriController;
 use App\Http\Controllers\DashboardDataSuratController;
+use App\Http\Controllers\DashboardJabatanController;
 use App\Http\Controllers\DashboardLaporanKeuanganController;
 use App\Http\Controllers\DashboardPerangkatGampongController;
 use App\Models\Berita;
@@ -22,6 +23,13 @@ use App\Models\Berita;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', function () {
+    return view('home', [
+        'title' => 'Beranda',
+        'beritas' => Berita::with('kategori')->latest()->get()
+    ]);
+});
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login')->middleware('guest');
@@ -63,6 +71,9 @@ Route::prefix('/dashboard')->group(function () {
     Route::resource('/user', AdminUserController::class)->except('show')->middleware('auth');
     Route::post('/user/reset-password', [AdminUserController::class, 'resetPassword'])->middleware('auth');
 
-    Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class)->middleware('auth');
+    Route::prefix('/struktur')->group(function () {
+        Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class)->middleware('auth');
+        Route::resource('/jabatan', DashboardJabatanController::class)->except(['create', 'show', 'edit'])->middleware('auth');
+    });
 
 });

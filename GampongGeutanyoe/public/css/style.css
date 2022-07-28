@@ -1,0 +1,126 @@
+/* CSS Navbar */
+.navbar {
+    background-color: #012258 !important;
+    color: #fff;
+    padding: 2px;
+} 
+
+.nav-link {
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #F57708 !important;
+}
+
+.list-user:hover{
+    background-color: #D1D1D1;
+}
+
+
+/* Akhir CSS Navbar */
+
+/* CSS Beranda */
+.btn-jelajahi {
+    background-color: #012258;
+}
+
+.btn-jelajahi:hover {
+    border: 1px solid #012258;
+    color: #012258 !important;
+}
+
+#berita-terkini {
+    background-color: #000956;
+}
+
+.gampong, .row-pertama, .berita-terkini, .pemuka, .kendala, .administrasi, .solusi{
+    margin-top: 100px;
+}
+
+.pemuka h2 {
+    color: #000957 !important;
+}
+
+.row-pertama, .row-column1{
+    display: flex;
+    flex: auto;
+}
+
+.contact-us {
+    background-color: #C84B31;
+}
+
+.btn-contact-us {
+    background-color: #000957;
+}
+
+#footer {
+    background-color: #012258;
+}
+
+/* Akhir CSS Beranda */
+
+
+/* CSS Berita */
+a.berita {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+.title{ 
+    padding: 12px; 
+    background-color: #012258;
+    font-weight: bold;
+}
+
+.kategori {
+    margin-left: 1148px;
+}
+
+.list-ktgr:hover {
+    background-color: #D1D1D1;
+}
+
+/* Akhir CSS Berita */
+
+/* CSS Administrasi */
+.btn-adm{
+    border-radius: 15px; 
+    border-style:none; 
+    color:white; 
+    background-color:black;
+}
+
+.img-kendala:hover{
+    padding :3px;
+    transition: ease 0.4s ;
+}
+
+/* Akhir CSS Administrasi */
+
+/* CSS Keuangan */
+.laporan {
+    display: flex;
+    flex: auto;
+}
+
+/* Akhir CSS Keuangan */
+
+/* CSS FORM */
+
+.container-form{
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.btn-primary{
+    padding-left: 70px;
+    padding-right: 70px;
+    border-radius: 50px;
+    font-size: 18px;
+    background-color: #012258 !important;
+
+}
+/* Akhir CSS FORM */

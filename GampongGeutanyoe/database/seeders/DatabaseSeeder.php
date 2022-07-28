@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Berita;
+use App\Models\Jabatan;
 use App\Models\Kategori;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -42,5 +43,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Berita::factory(10)->create();
+
+        Jabatan::create([
+            'nama' => 'Geuchik'
+        ]);
+
+        Jabatan::create([
+            'nama' => 'Sekretaris Desa'
+        ]);
+
+        Jabatan::create([
+            'nama' => 'Bendahara Desa'
+        ]);
+
+        Jabatan::create([
+            'nama' => 'Tuha 4'
+        ]);
     }
 }

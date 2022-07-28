@@ -70,13 +70,28 @@
         <div data-i18n="Analytics">Laporan Keuangan</div>
       </a>
     </li>
+
     {{-- Perangkat Gampong --}}
-    <li class="menu-item {{ Request::is('dashboard/perangkat-gampong*') ? 'active' : '' }}">
-      <a href="/dashboard/perangkat-gampong" class="menu-link">
+    <li class="menu-item {{ Request::is('dashboard/struktur*') ? 'active open' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="fa-duotone fa-list-tree me-3"></i>
-        <div data-i18n="Analytics">Perangkat Gampong</div>
+        <div data-i18n="Layouts">Struktur Pengurus</div>
       </a>
+
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::is('dashboard/struktur/perangkat-gampong*') ? 'active' : '' }}">
+          <a href="/dashboard/struktur/perangkat-gampong" class="menu-link">
+            <div data-i18n="Analytics">Perangkat Gampong</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('dashboard/struktur/jabatan*') ? 'active' : '' }}">
+          <a href="/dashboard/struktur/jabatan" class="menu-link">
+            <div data-i18n="data surat">Kelola Jabatan</div>
+          </a>
+        </li>
+      </ul>
     </li>
+
     {{-- User --}}
     <li class="menu-item {{ Request::is('dashboard/user*') ? 'active' : '' }}">
       <a href="/dashboard/user" class="menu-link">

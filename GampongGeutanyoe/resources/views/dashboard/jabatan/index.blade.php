@@ -14,10 +14,10 @@
 
   <div class="row">
     <div class="col">
-      <a class="btn btn-primary" href="{{ route('kategori-berita.create') }}">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTambah">
         <i class="fa-regular fa-plus me-2"></i>
         Tambah
-      </a>
+      </button>
     </div>
   </div>
 
@@ -30,15 +30,15 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Nama Kategori</th>
+                <th>Nama Jabatan</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($kategoris as $kategori)
+              @foreach ($jabatans as $jabatan)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $kategori->nama }}</td>
+                  <td>{{ $jabatan->nama }}</td>
                   <td>
                     <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modalEdit{{ $loop->iteration }}">
                       <i class="fa-regular fa-pen-to-square"></i>
@@ -49,31 +49,22 @@
                   </td>
                 </tr>
 
-                {{-- Modal Edit Kategori --}}
+                {{-- Modal Edit Jabatan --}}
                 <div class="modal fade" id="modalEdit{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Kategori Berita</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Jabatan Perangkat Gampong</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <form action="{{ route('kategori-berita.update', $kategori->id) }}" method="post">
+                      <form action="{{ route('jabatan.update', $jabatan->id) }}" method="post">
                         <div class="modal-body">
                           @method('put')
                           @csrf
                           <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Kategori</label>
-                            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" value="{{ old('nama', $kategori->nama) }}" autofocus required>
+                            <label for="nama" class="form-label">Nama Jabatan</label>
+                            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" value="{{ old('nama', $jabatan->nama) }}" autofocus required>
                             @error('nama')
-                              <div class="invalid-feedback">
-                                {{ $message }}
-                              </div>
-                            @enderror
-                          </div>
-                          <div class="mb-3">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="slug" value="{{ old('slug', $kategori->slug) }}" required>
-                            @error('slug')
                               <div class="invalid-feedback">
                                 {{ $message }}
                               </div>
@@ -82,27 +73,27 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                          <button type="submit" class="btn btn-primary">Simpan Kategori</button>
+                          <button type="submit" class="btn btn-primary">Simpan Jabatan</button>
                         </div>
                       </form>
                     </div>
                   </div>
                 </div>
-                {{-- / Modal Edit Kategori --}}
+                {{-- / Modal Edit Jabatan --}}
 
-                {{-- Modal Hapus Kategori --}}
+                {{-- Modal Hapus Jabatan --}}
                 <div class="modal fade" id="modalHapus{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Hapus Kategori</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Jabatan Perangkat Gampong</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <form action="{{ route('kategori-berita.destroy', $kategori->id) }}" method="post">
+                      <form action="{{ route('jabatan.destroy', $jabatan->id) }}" method="post">
                         @method('delete')
                         @csrf
                         <div class="modal-body">
-                          <p class="fs-6">Apakah anda yakin akan menghapus kategori <b>{{ $kategori->nama }}</b>?</p>
+                          <p class="fs-6">Apakah anda yakin akan menghapus jabatan <b>{{ $jabatan->nama }}</b>?</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -112,7 +103,7 @@
                     </div>
                   </div>
                 </div>
-                {{-- / Modal Hapus Kategori --}}
+                {{-- / Modal Hapus Jabatan --}}
               @endforeach
             </tbody>
           </table>
@@ -122,14 +113,34 @@
     </div>
   </div>
 
-  <script>
-    const nama = document.querySelector('#nama');
-    const slug = document.querySelector('#slug');
-
-    nama.addEventListener('change', function() {
-      fetch('/dashboard/berita/kategori-berita/createSlug?nama=' + nama.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
-    });
-  </script>
+  {{-- Modal Tambah Jabatan --}}
+  <div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tambah Jabatan Perangkat Gampong</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{ route('jabatan.store') }}" method="post">
+          <div class="modal-body">
+            @csrf
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama Jabatan</label>
+              <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" value="{{ old('nama') }}" autofocus required>
+              @error('nama')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary">Simpan Jabatan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{-- / Modal Tambah Jabatan --}}
 @endsection
