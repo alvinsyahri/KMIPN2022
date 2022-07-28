@@ -4,11 +4,22 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="position-relative overflow-hidden text-center bg-dark" style="background-image: url({{ asset('images/hand.jpg') }}); background-repeat: no-repeat; background-position: center; background-size: cover; height: 500px;">
-            <div class="col-md-5 p-lg-5 mx-auto my-5">
-              <h1 class="display-4 fw-normal p-5 mt-5" style="color: WHITE; font-weight:bold">SOLUSI KITA</h1>
-            </div>
+        @if (session()->has('success'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
+        @endif
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="position-relative overflow-hidden text-center bg-dark" style="background-image: url({{ asset('images/hand.jpg') }}); background-repeat: no-repeat; background-position: center; background-size: cover; height: 500px;">
+          <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 fw-normal p-5 mt-5" style="color: WHITE; font-weight:bold">SOLUSI KITA</h1>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -49,18 +60,14 @@
       <div class="row flex-wrap" style="background-color: #012258; color:white">
         <div class="col p-5">
           <h4>ADMINISTRASI</h4>
-          <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </P>
-
-          <a href="/administrasi/form-adm">
-            <button class="btn-adm" type="button">
-              <p class="p-1" style="text-align: center; margin:auto"> Request</p>
-            </button>
-          </a>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+          <a class="btn btn-adm px-4" href="/administrasi/form-adm">Request</a>
 
           <h4 style="margin-top: 55px;">KONTAK</h4>
-          <button class="btn-adm" type="button">
-            <p class="p-1" style="text-align: center; margin:auto">Telp +62 813 6441 2394</p>
-          </button>
+          <a class="btn btn-adm px-4" href="#">
+            <i class="fa-brands fa-whatsapp"></i>
+            +62 813 6441 2394
+          </a>
         </div>
         <div class="col p-5">
           <h4>MASUKAN</h4>
@@ -68,28 +75,22 @@
             @csrf
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
-              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+              <input type="email" class="form-control" name="email" id="email" required>
             </div>
             <div class="mb-3">
-              <label for="nama" class="form-label">Nama</label>
-              <input type="text" name="nama" class="form-control" id="nama" required>
+              <label for="masukan" class="form-label">Masukan</label>
+              <textarea class="form-control" name="masukan" id="masukan" placeholder="Tuliskan masukan anda untuk gampong kami" rows="3" required></textarea>
             </div>
-            <div class="mb-3">
-              <label for="masukan">Masukan</label>
-              <textarea class="form-control" name="masukan" placeholder="Masukan" id="masukan" required></textarea>
+            <div class="text-end">
+              <button type="submit" class="btn btn-adm px-4">Kirim</button>
             </div>
-            <button type="submit" class="btn btn-adm">submit</button>
           </form>
         </div>
 
         <div class="col p-5">
           <h4>PERIZINAN</h4>
           <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </P>
-          <a href="/administrasi/form-izin">
-            <button class="btn-adm" type="button">
-              <p class="p-1" style="text-align: center; margin:auto"> Request</p>
-            </button>
-          </a>
+          <a class="btn btn-adm px-4" href="/administrasi/form-izin">Request</a>
         </div>
       </div>
     </div>

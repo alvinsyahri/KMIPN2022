@@ -3,7 +3,7 @@
 @section('content')
   <div class="container mb-5 d-flex justify-content-center">
     <div class="row">
-      <h1 class="text-center fw-bold" style="color:#000957;">FORM PERIZINAN</h1>
+      <h1 class="text-center fw-bold mb-4" style="color:#000957;">FORM PERIZINAN</h1>
       <div class="col">
         <div class="card">
           <div class="card-body">

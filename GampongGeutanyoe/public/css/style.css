@@ -3,7 +3,7 @@
     background-color: #012258 !important;
     color: #fff;
     padding: 2px;
-} 
+}
 
 .nav-link {
     font-weight: 600;
@@ -13,7 +13,7 @@
     color: #F57708 !important;
 }
 
-.list-user:hover{
+.list-user:hover {
     background-color: #D1D1D1;
 }
 
@@ -34,7 +34,13 @@
     background-color: #000956;
 }
 
-.gampong, .row-pertama, .berita-terkini, .pemuka, .kendala, .administrasi, .solusi{
+.gampong,
+.row-pertama,
+.berita-terkini,
+.pemuka,
+.kendala,
+.administrasi,
+.solusi {
     margin-top: 100px;
 }
 
@@ -42,7 +48,8 @@
     color: #000957 !important;
 }
 
-.row-pertama, .row-column1{
+.row-pertama,
+.row-column1 {
     display: flex;
     flex: auto;
 }
@@ -69,8 +76,8 @@ a.berita {
     text-align: center;
 }
 
-.title{ 
-    padding: 12px; 
+.title {
+    padding: 12px;
     background-color: #012258;
     font-weight: bold;
 }
@@ -86,16 +93,20 @@ a.berita {
 /* Akhir CSS Berita */
 
 /* CSS Administrasi */
-.btn-adm{
-    border-radius: 15px; 
-    border-style:none; 
-    color:white; 
-    background-color:black;
+.btn-adm {
+    color: #fff;
+    background-color: #000;
+    border-radius: 10px;
 }
 
-.img-kendala:hover{
-    padding :3px;
-    transition: ease 0.4s ;
+.btn-adm:hover {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.img-kendala:hover {
+    padding: 3px;
+    transition: ease 0.4s;
 }
 
 /* Akhir CSS Administrasi */
@@ -110,10 +121,11 @@ a.berita {
 
 /* CSS FORM */
 
-.btn-primary{
+.btn-primary {
     padding-left: 70px;
     padding-right: 70px;
     border-radius: 50px;
     background-color: #012258 !important;
 }
+
 /* Akhir CSS FORM */

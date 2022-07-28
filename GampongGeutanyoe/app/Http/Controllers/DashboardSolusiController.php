@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Solusi;
 use Illuminate\Http\Request;
 
 class DashboardSolusiController extends Controller
@@ -14,7 +15,8 @@ class DashboardSolusiController extends Controller
     public function index()
     {
         return view('dashboard.solusi.index',[
-            'title' => 'Solusi'
+            'title' => 'Solusi',
+            'solusis' => Solusi::all()
         ]);
     }
 
@@ -36,7 +38,14 @@ class DashboardSolusiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'email' => 'required',
+            'masukan' => 'required',
+        ]);
+
+        Solusi::create($validatedData);
+
+        return redirect('/administrasi')->with('success', 'Masukan Terkirim! Terima kasih sudah memberikan masukan kepada gampong kami');
     }
 
     /**
@@ -68,9 +77,17 @@ class DashboardSolusiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Solusi $solusi)
     {
-        //
+        $rules = [
+            'respon' => 'required'
+        ];
+
+        $validatedData = $request->validate($rules);
+        
+        Solusi::where('id', $solusi->id)->update($validatedData);
+        
+        return redirect('/dashboard/administrasi/solusi')->with('success', 'Respon berhasil diberikan!');
     }
 
     /**
@@ -79,8 +96,9 @@ class DashboardSolusiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Solusi $solusi)
     {
-        //
+        Solusi::destroy($solusi->id);
+        return redirect('/dashboard/administrasi/solusi')->with('success', 'Data solusi berhasil dihapus!');
     }
 }

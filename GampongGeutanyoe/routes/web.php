@@ -93,7 +93,7 @@ Route::prefix('/dashboard')->group(function () {
     });
 
     Route::prefix('/administrasi')->group(function () {
-        Route::resource('/solusi', DashboardSolusiController::class)->middleware('auth');
+        Route::resource('/solusi', DashboardSolusiController::class)->except(['create', 'show', 'edit'])->middleware('auth');
         Route::resource('/data-surat', DashboardDataSuratController::class)->middleware('auth');
         Route::get('/perizinan', [DashboardPerizinanController::class, 'index'])->middleware('auth');
         Route::post('/perizinan', [DashboardPerizinanController::class, 'store'])->middleware('auth');
