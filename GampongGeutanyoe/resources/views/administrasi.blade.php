@@ -71,7 +71,7 @@
         </div>
         <div class="col p-5">
           <h4>MASUKAN</h4>
-          <form action="{{ route('solusi.store') }}" method="post">
+          <form action="/administrasi/masukan" method="post">
             @csrf
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>

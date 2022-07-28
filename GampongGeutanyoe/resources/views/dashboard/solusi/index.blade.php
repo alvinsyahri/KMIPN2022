@@ -31,7 +31,7 @@
             <tbody>
               @foreach ($solusis as $solusi)
                 <tr>
-                  <th>{{ $loop->iteration }}</th>
+                  <td>{{ $loop->iteration }}</td>
                   <td>{{ $solusi->created_at->format('d/m/Y') }}</td>
                   <td>{{ $solusi->email }}</td>
                   <td>{{ $solusi->masukan }}</td>

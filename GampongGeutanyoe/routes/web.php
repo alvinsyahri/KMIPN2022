@@ -33,22 +33,26 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/administrasi', function () {
-    return view('administrasi', [
-        "title" => "Administrasi"
-    ]);
-});
+Route::prefix('/administrasi')->group(function () {
+    Route::get('/', function () {
+        return view('administrasi', [
+            "title" => "Administrasi"
+        ]);
+    });
 
-Route::get('/administrasi/form-adm', function () {
-    return view('form_adm', [
-        "title" => "Form Administrasi"
-    ]);
-});
+    Route::post('/masukan', [DashboardSolusiController::class, 'store']);
 
-Route::get('/administrasi/form-izin', function () {
-    return view('form_izin', [
-        "title" => "Form Perizinan"
-    ]);
+    Route::get('/form-adm', function () {
+        return view('form_adm', [
+            "title" => "Form Administrasi"
+        ]);
+    });
+    
+    Route::get('/form-izin', function () {
+        return view('form_izin', [
+            "title" => "Form Perizinan"
+        ]);
+    });
 });
 
 Route::get('/tentang', function () {
@@ -93,8 +97,10 @@ Route::prefix('/dashboard')->group(function () {
     });
 
     Route::prefix('/administrasi')->group(function () {
-        Route::resource('/solusi', DashboardSolusiController::class)->except(['create', 'show', 'edit'])->middleware('auth');
+        Route::resource('/solusi', DashboardSolusiController::class)->except(['create', 'store', 'show', 'edit'])->middleware('auth');
+        
         Route::resource('/data-surat', DashboardDataSuratController::class)->middleware('auth');
+        
         Route::get('/perizinan', [DashboardPerizinanController::class, 'index'])->middleware('auth');
         Route::post('/perizinan', [DashboardPerizinanController::class, 'store'])->middleware('auth');
     });
