@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Jabatan extends Model
+class PerangkatGampong extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function perangkatGampong()
+    public function jabatan()
     {
-        return $this->hasOne(PerangkatGampong::class);
+        return $this->belongsTo(Jabatan::class, 'id_jabatan');
     }
 }

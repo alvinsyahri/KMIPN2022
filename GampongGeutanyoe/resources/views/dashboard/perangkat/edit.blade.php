@@ -11,11 +11,12 @@
       <div class="card mt-3">
         <div class="card-body">
           {{-- Form Perangkat Gampong --}}
-          <form action="{{ route('perangkat-gampong.store') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('perangkat-gampong.update', $perangkat->id) }}" method="post" enctype="multipart/form-data">
+            @method('put')
             @csrf
             <div class="mb-3">
               <label for="nama" class="form-label">Nama Lengkap</label>
-              <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" value="{{ old('nama') }}" autofocus required>
+              <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" value="{{ old('nama', $perangkat->nama) }}" autofocus required>
               @error('nama')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -43,7 +44,8 @@
 
             <div class="mb-3">
               <label for="foto" class="form-label">Foto</label>
-              <img class="img-preview img-fluid mb-3 col-sm-5">
+              <input type="hidden" name="oldFoto" value="{{ $perangkat->foto }}">
+              <img src="{{ asset('storage/' .  $perangkat->foto) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
               <input class="form-control @error('foto') is-invalid @enderror" type="file" name="foto" id="foto" onchange="previewImage()">
               @error('foto')
                 <div class="invalid-feedback">
@@ -52,7 +54,7 @@
               @enderror
             </div>
             <div class="text-end">
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <button type="submit" class="btn btn-primary">Update</button>
             </div>
           </form>
           {{-- End Form Perangkat Gampong --}}

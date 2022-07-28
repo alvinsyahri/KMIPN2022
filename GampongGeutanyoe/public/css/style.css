@@ -110,17 +110,10 @@ a.berita {
 
 /* CSS FORM */
 
-.container-form{
-    margin-left: 250px;
-    margin-right: 250px;
-}
-
 .btn-primary{
     padding-left: 70px;
     padding-right: 70px;
     border-radius: 50px;
-    font-size: 18px;
     background-color: #012258 !important;
-
 }
 /* Akhir CSS FORM */
