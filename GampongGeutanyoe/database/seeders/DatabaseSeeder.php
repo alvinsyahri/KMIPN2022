@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'pengumuman'
         ]);
 
-        Berita::factory(10)->create();
+        Berita::factory(20)->create();
 
         Jabatan::create([
             'nama' => 'Geuchik'

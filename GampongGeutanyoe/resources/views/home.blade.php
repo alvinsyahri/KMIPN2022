@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-delay='{"show":0,"hide":150}'>
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>

@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardKategoriController;
 use App\Http\Controllers\DashboardDataSuratController;
 use App\Http\Controllers\DashboardLaporanKeuanganController;
 use App\Http\Controllers\DashboardPerangkatGampongController;
+use App\Http\Controllers\DashboardPerizinanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,11 +83,11 @@ Route::prefix('/dashboard')->group(function () {
         ]);
     })->middleware('auth');
 
-    
+
     Route::prefix('/berita')->group(function () {
         Route::get('/data-berita/checkSlug', [DashboardBeritaController::class, 'checkSlug'])->middleware('auth');
         Route::resource('/data-berita', DashboardBeritaController::class)->middleware('auth');
-        
+
         Route::get('/kategori-berita/createSlug', [DashboardKategoriController::class, 'checkSlug'])->middleware('auth');
         Route::resource('/kategori-berita', DashboardKategoriController::class)->except(['show', 'edit'])->middleware('auth');
     });
@@ -94,11 +95,8 @@ Route::prefix('/dashboard')->group(function () {
     Route::prefix('/administrasi')->group(function () {
         Route::resource('/solusi', DashboardSolusiController::class)->middleware('auth');
         Route::resource('/data-surat', DashboardDataSuratController::class)->middleware('auth');
-        Route::get('/perizinan', function () {
-            return view('dashboard.perizinan.index',[
-                'title' => 'Perizinan Tamu'
-            ]);
-        })->middleware('auth');
+        Route::get('/perizinan', [DashboardPerizinanController::class, 'index'])->middleware('auth');
+        Route::post('/perizinan', [DashboardPerizinanController::class, 'store'])->middleware('auth');
     });
 
     Route::resource('/laporan-keuangan', DashboardLaporanKeuanganController::class)->middleware('auth');
@@ -110,5 +108,4 @@ Route::prefix('/dashboard')->group(function () {
         Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class)->except('show')->middleware('auth');
         Route::resource('/jabatan', DashboardJabatanController::class)->except(['create', 'show', 'edit'])->middleware('auth');
     });
-
 });

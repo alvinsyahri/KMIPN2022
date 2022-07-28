@@ -28,8 +28,8 @@
     </div>
 
     <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        username
+      <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ auth()->user()->nama }}
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li><a class="list-user dropdown-item" href="/profile">Profile</a></li>

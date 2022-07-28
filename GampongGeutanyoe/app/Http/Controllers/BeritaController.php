@@ -12,7 +12,7 @@ class BeritaController extends Controller
     {
         return view('berita', [
             "title" => "Berita",
-            "beritas" => Berita::latest()->paginate(6)->withQueryString(),
+            "beritas" => Berita::latest()->paginate(9)->withQueryString(),
             'kategoris' => Kategori::all()
         ]);
     }

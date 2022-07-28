@@ -122,7 +122,7 @@ class DashboardBeritaController extends Controller
             $validatedData['thumbnail'] = $request->file('thumbnail')->store('thumbnail-berita');
         }
 
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->isi), 200);
 
         Berita::where('id', $data_beritum->id)->update($validatedData);
 
