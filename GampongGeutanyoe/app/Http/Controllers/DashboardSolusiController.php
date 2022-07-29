@@ -16,7 +16,7 @@ class DashboardSolusiController extends Controller
     {
         return view('dashboard.solusi.index',[
             'title' => 'Solusi',
-            'solusis' => Solusi::all()
+            'solusis' => Solusi::latest()->get()
         ]);
     }
 
@@ -80,7 +80,7 @@ class DashboardSolusiController extends Controller
     public function update(Request $request, Solusi $solusi)
     {
         $rules = [
-            'respon' => 'required'
+            'respon' => ''
         ];
 
         $validatedData = $request->validate($rules);

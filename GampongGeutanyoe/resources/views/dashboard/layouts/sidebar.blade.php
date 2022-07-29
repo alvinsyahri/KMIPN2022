@@ -1,7 +1,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
   <div class="app-brand">
     <a href="index.html" class="app-brand-link fs-4 fw-bold text-center">
-      Gampong Geutanyoe
+      Gampong Geutanyo
     </a>
   </div>
 

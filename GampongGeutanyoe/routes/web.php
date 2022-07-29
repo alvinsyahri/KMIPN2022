@@ -14,6 +14,7 @@ use App\Http\Controllers\DashboardDataSuratController;
 use App\Http\Controllers\DashboardLaporanKeuanganController;
 use App\Http\Controllers\DashboardPerangkatGampongController;
 use App\Http\Controllers\DashboardPerizinanController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,8 @@ Route::get('/', function () {
     ]);
 });
 
+// Route::get('/email', [EmailController::class, 'index']);
+
 Route::prefix('/administrasi')->group(function () {
     Route::get('/', function () {
         return view('administrasi', [
@@ -47,6 +50,8 @@ Route::prefix('/administrasi')->group(function () {
             "title" => "Form Administrasi"
         ]);
     });
+
+    Route::post('/perizinan', [DashboardPerizinanController::class, 'store']);
     
     Route::get('/form-izin', function () {
         return view('form_izin', [
@@ -101,8 +106,8 @@ Route::prefix('/dashboard')->group(function () {
         
         Route::resource('/data-surat', DashboardDataSuratController::class)->middleware('auth');
         
-        Route::get('/perizinan', [DashboardPerizinanController::class, 'index'])->middleware('auth');
-        Route::post('/perizinan', [DashboardPerizinanController::class, 'store'])->middleware('auth');
+        Route::resource('/perizinan', DashboardPerizinanController::class)->middleware('auth');
+        Route::put('/perizinan', [DashboardPerizinanController::class, 'konfirmasiPerizinan'])->middleware('auth');
     });
 
     Route::resource('/laporan-keuangan', DashboardLaporanKeuanganController::class)->middleware('auth');

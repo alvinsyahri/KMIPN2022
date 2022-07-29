@@ -75,11 +75,11 @@
             @csrf
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" name="email" id="email" required>
+              <input type="email" class="form-control rounded-3" name="email" id="email" required>
             </div>
             <div class="mb-3">
               <label for="masukan" class="form-label">Masukan</label>
-              <textarea class="form-control" name="masukan" id="masukan" placeholder="Tuliskan masukan anda untuk gampong kami" rows="3" required></textarea>
+              <textarea class="form-control rounded-3" name="masukan" id="masukan" placeholder="Tuliskan masukan anda untuk gampong kami" rows="3" required></textarea>
             </div>
             <div class="text-end">
               <button type="submit" class="btn btn-adm px-4">Kirim</button>

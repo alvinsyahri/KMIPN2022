@@ -128,4 +128,8 @@ a.berita {
     background-color: #012258 !important;
 }
 
+.btn-primary:hover {
+    background-color: #0441a2 !important;
+}
+
 /* Akhir CSS FORM */
