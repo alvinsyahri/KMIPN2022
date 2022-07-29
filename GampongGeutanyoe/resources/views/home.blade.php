@@ -1,46 +1,19 @@
 @extends('layouts.main')
+@section('body-class', 'hero-section')
 
 @section('content')
-  <div class="container">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-delay='{"show":0,"hide":150}'>
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{{ asset('images/sungai.jpg') }}" height="500px" class="img-c d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{{ asset('images/orang.jpg') }}" height="500px" class="img-c d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{{ asset('images/sawah.jpg') }}" height="500px" class="img-c d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-
-  <section id="about-us">
+  <section id="home" class="p-3 p-md-4 p-lg-5">
     <div class="container">
-      <div class="row my-5 gap-3 gap-md-0">
-        <div class="col-md-5">
-          <img src="{{ asset('images/sawah.jpg') }}" class="img-fluid rounded-3" alt="...">
+      <div class="row align-items-center">
+        <div class="col-md-5 order-md-1 text-md-end mb-5 mb-md-0" data-aos="fade-left" data-aos-duration="1000">
+          <img src="{{ asset('images/bg.png') }}" class="text-end img-fluid rounded-3" alt="...">
         </div>
-        <div class="col-md-7">
-          <h6 class="text-muted">ABOUT US</h6>
-          <h2 class="card-title fw-bold">GAMPONG PUNTEUT</h2>
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quam aliquid consectetur adipisci cupiditate nostrum et nemo iste blanditiis consequuntur!
+        <div class="col-md-7 order-md-0" data-aos="fade-right" data-aos-duration="1000">
+          <h5 class="fw-light text-white mb-0">WELCOME TO</h5>
+          <h1 class="display-3 fw-bold lh-sm text-uppercase">Gampong <br> Ulee Blang Mane</h1>
+          <p class="my-4">
+            Gampong Ulee Blang Mane merupakan salah satu desa/kelurahan di Kecamatan Blang Mangat, Kota Lhokseumawe, Provinsi Aceh.
+            Gampong Ulee Blang Mane berbatasan dengan Gampong Bayu dan Bukitrata. Ulee Blang Mane mempunyai kode telepon 0645 dan kode wilayah menurut Kemendagri 11.73.03.2015, serta memiliki kode pos 24375.
           </p>
           <a href="/tentang" class="btn btn-jelajahi rounded-pill text-white px-4 py-2">JELAJAHI</a>
         </div>
@@ -48,116 +21,78 @@
     </div>
   </section>
 
+  <section id="visi-misi">
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col" data-aos="fade-right" data-aos-duration="2000">
+          <div class="card rounded-3 p-3">
+            <div class="card-body text-dark">
+              <h2 class="text-center fw-bold">VISI & MISI</h2><br>
+              <h3 class="h5 fw-bold">VISI</h3>
+              <p>TERWUJUDNYA GAMPONG ULEE BLANG MANE YANG AMAN, ISLAMI, SEJAHTERA, SEHAT, CERDAS, BERBUDAYA DAN MANDIRI.</p>
 
-  <div class="container my-5">
-    <h2 class="text-center fw-bold">BERITA TERPOPULER</h2>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-md-4">
-      @foreach ($beritas->only([1, 2, 3, 4, 5, 6]) as $berita)
-        <div class="col">
-          <div class="card rounded-3 p-3 border-0">
-            <div class="position-absolute badge bg-light mx-3 my-3">
-              <a class="text-decoration-none text-dark" href="/berita?kategori={{ $berita->kategori->slug }}">{{ $berita->kategori->nama }}</a>
-            </div>
-            <img src="https://source.unsplash.com/300x200/?{{ $berita->kategori->nama }}" class="card-img-top rounded-3" alt="{{ $berita->kategori->nama }}">
-            <div class="card-body p-0 mt-3">
-              <h5 class="card-title m-0">
-                <a class="text-decoration-none link-dark" href="/beritas/{{ $berita->slug }}">
-                  {{ $berita->judul }}
-                </a>
-              </h5>
-              <p class="card-text mt-1"><small class="text-muted">{{ $berita->created_at->diffForHumans() }}</small></p>
-              <p class="card-text">{{ $berita->excerpt }} <a class="text-decoration-none" href="/beritas/{{ $berita->slug }}">Read More</a></p>
+              <h3 class="h5 fw-bold">MISI</h3>
+              <ol>
+                <li>Meningkatkan pengembangan kegiatan keagamaan</li>
+                <li>Mengupayakan bantuan rumah bagi masyarakat miskin.</li>
+                <li>Memberdayakan perekonomian masyarakat gampong demi tercapainya kesejahteraan masyarakat.</li>
+                <li>Mewujudkan dan meningkatkan serta meneruskan tata kelola pemerintah gampong yang baik.</li>
+                <li>Meningkatan pelayanan yang maksimal kepada masyarakat gampong.</li>
+                <li>Meningkatkan kesehatan gampong serta mengusahakan jaminan kesehatan masyarakat melalui program pemerintah.</li>
+              </ol>
             </div>
           </div>
         </div>
-      @endforeach
+        <div class="col mt-4 mt-md-0" data-aos="fade-left" data-aos-duration="2000">
+          <div class="card rounded-3 p-3">
+            <div class="card-body text-dark">
+              <h2 class="text-center fw-bold">QANUN-QANUN</h2><br>
+              <ol>
+                <li>Qanun Bidang Ibadah</li>
+                <li>Qanun Bidang Akhwal Al-Syakhsyiah (Hukum Keluarga)
+                  <p>Qanun ini terdiri dari hal hal yg diatur dalam pasal 49 UU No.7 Tahun 1989 tentang peradilan agama beserta penjelasan pasal tersebut kecuali wakaf, hibah, dan shadaqah</p>
+                </li>
+                <li>Qanun Bidang Muamalah (Hukum Perdata)
+                  <p>Qanun ini terdiri dari jual beli, hutang piutang, qiradh (permodalan), musaqah, muzara'ah, mukharabah (bagi hasil pertanian), wakilah (perwakilan), syirkah (perkongsian), 'ariyah (pinjam meminjam), hajru ( penyitaan harta), syuf'ah ( hak langgeh), rahnun (gadai), ihya'ul mawat ( pembukaan lahan), wakaf</p>
+                </li>
+                <li>Qanun Bidang Jinayah (Hukum Pidana)
+                  <p>Qanun ini meliputi 3 bagian, yaitu Hudud, Qishash, dan Ta'zir.
+                    <br>Hudud meliputi Zina, Qadzaf (menuduh berzina), Mencuri, Merampok, Minuman keras, Murtad, serta Pemberontakan.
+                    <br>Qishash meliputi Pembunuhan dan Penganiayaan.
+                    <br>Ta'zir meliputi Judi, Penipuan, Pemalsuan, Khalwat, Meninggalkan solat fardhu, serta Meninggalkan puasa ramadhan.
+                  </p>
+                </li>
+                <li>Qanun Bidang Qadla' (Peradilan)</li>
+                <li>Qanun Bidang Tarbiyah (Pendidikan)</li>
+                <li>Qanun Bidang Dakwah, Syiar, dan Pembelaan Islam</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-
-  <section id="berita-terkini">
-    <div class="container my-5">
-      <h1 class="text-center fw-bold text-white"><br>BERITA TERKINI</h1>
-      <p class="text-center text-white mb-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's <br> standard dummy text ever since the 1500s</p>
-      <div class="row gap-3 gap-md-2 gap-lg-0">
-        @foreach ($beritas->only([1, 2, 3]) as $berita)
-          <div class="col-6 col-md-4">
-            <div class="card rounded-3 p-3 border-0">
-              <div class="position-absolute badge bg-light mx-3 my-3">
-                <a class="text-decoration-none text-dark" href="/berita?kategori={{ $berita->kategori->slug }}">{{ $berita->kategori->nama }}</a>
-              </div>
-              <img src="https://source.unsplash.com/300x200/?{{ $berita->kategori->nama }}" class="card-img-top rounded-3" alt="{{ $berita->kategori->nama }}">
-              <div class="card-body p-0 mt-3">
-                <h5 class="card-title m-0">
-                  <a class="text-decoration-none link-dark" href="/beritas/{{ $berita->slug }}">
-                    {{ $berita->judul }}
-                  </a>
-                </h5>
-                <p class="card-text mt-1"><small class="text-muted">{{ $berita->created_at->diffForHumans() }}</small></p>
+  <section id="pemuka">
+    <div class="container">
+      <h2 class="pemuka text-center text-white fw-bold">PEMUKA GAMPONG</h2>
+      <div class="row p-4">
+        @foreach ($perangkats as $perangkat)
+          <div class="col mt-4 mt-md-0" data-aos="fade-up" data-aos-duration="1000">
+            <div class="card" style="width: 18rem;">
+              @if ($perangkat->foto)
+                <img src="{{ asset('storage/' . $perangkat->foto) }}" alt="{{ $perangkat->nama }}" class="card-img-top">
+              @else
+                <img src="{{ asset('images/avatar.png') }}" alt="{{ $perangkat->nama }}" class="card-img-top">
+              @endif
+              <div class="card-body">
+                <h5 class="card-title text-dark text-center">{{ $perangkat->nama }}</h5>
+                <p class="card-title text-dark text-center">{{ $perangkat->jabatan->nama }}</p>
               </div>
             </div>
           </div>
         @endforeach
       </div>
     </div>
-
-    <div class="contact-us">
-      <div class="row">
-        <div class="col p-3 text-center">
-          <span class="text-white">LOOKING INFORMATION ACURATE FOR YOU</span>
-        </div>
-        <div class="col p-2 text-center">
-          <a class="btn btn-primary btn-contact-us rounded-3" href="#" role="button">
-            Contact Us</a>
-        </div>
-      </div>
-    </div>
   </section>
-
-
-  <div class="my-5 pemuka">
-    <h2 class="text-center fw-bold">PEMUKA GAMPONG</h2>
-    <div class="row p-4">
-      <div class="col">
-        <div class="card p-1" style="width: 250px; border-radius:15px; background-color:#C84B31 ;">
-          <img src="{{ asset('images/user.jpg') }}" alt="" class="card-img-top shadow" style="border-radius:16px;">
-          <div class="card-body" style="border-radius:16px;">
-            <h5 class="card-title text-light">GEUCHIK</h5>
-            <p>PLorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card p-1" style="width: 250px; border-radius:15px; background-color:#C84B31 ;">
-          <img src="{{ asset('images/user.jpg') }}" alt="" class="card-img-top shadow" style="border-radius:16px;">
-          <div class="card-body" style="border-radius:16px;">
-            <h5 class="card-title text-light">SEKRETARIS DESA</h5>
-            <p>PLorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card p-1" style="width: 250px; border-radius:15px; background-color:#C84B31 ;">
-          <img src="{{ asset('images/user.jpg') }}" alt="" class="card-img-top shadow" style="border-radius:16px;">
-          <div class="card-body" style="border-radius:16px;">
-            <h5 class="card-title text-light">BENDAHARA DESA</h5>
-            <p>PLorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="card p-1" style="width: 250px; border-radius:15px; background-color:#C84B31 ;">
-          <img src="{{ asset('images/user.jpg') }}" alt="" class="card-img-top shadow" style="border-radius:16px;">
-          <div class="card-body" style="border-radius:16px;">
-            <h5 class="card-title text-light">TUHA 4</h5>
-            <p>PLorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 @endsection

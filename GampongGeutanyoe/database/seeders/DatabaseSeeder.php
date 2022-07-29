@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Berita;
 use App\Models\Jabatan;
 use App\Models\Kategori;
+use App\Models\PerangkatGampong;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -58,6 +59,26 @@ class DatabaseSeeder extends Seeder
 
         Jabatan::create([
             'nama' => 'Tuha 4'
+        ]);
+
+        PerangkatGampong::create([
+            'nama' => 'Muhammad',
+            'id_jabatan' => 1
+        ]);
+
+        PerangkatGampong::create([
+            'nama' => 'Siska',
+            'id_jabatan' => 2
+        ]);
+
+        PerangkatGampong::create([
+            'nama' => 'Fatimah',
+            'id_jabatan' => 3
+        ]);
+
+        PerangkatGampong::create([
+            'nama' => 'Baharuddin',
+            'id_jabatan' => 4
         ]);
     }
 }

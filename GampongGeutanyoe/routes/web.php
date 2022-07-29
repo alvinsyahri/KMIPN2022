@@ -15,6 +15,7 @@ use App\Http\Controllers\DashboardLaporanKeuanganController;
 use App\Http\Controllers\DashboardPerangkatGampongController;
 use App\Http\Controllers\DashboardPerizinanController;
 use App\Http\Controllers\EmailController;
+use App\Models\PerangkatGampong;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,8 @@ use App\Http\Controllers\EmailController;
 Route::get('/', function () {
     return view('home', [
         'title' => 'Beranda',
-        'beritas' => Berita::with('kategori')->latest()->get()
+        'beritas' => Berita::with('kategori')->latest()->get(),
+        'perangkats' => PerangkatGampong::with('jabatan')->get()
     ]);
 });
 

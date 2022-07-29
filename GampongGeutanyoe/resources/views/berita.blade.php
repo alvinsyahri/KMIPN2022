@@ -51,8 +51,8 @@
   <div class="container">
     <div class="row mb-5">
       <div class="col">
-        <div class="kategori dropdown mt-5">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="kategori dropdown mt-5 ms-0">
+          <button class="btn btn-kategori btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Kategori Berita
           </button>
           <ul class="dropdown-menu">
@@ -67,7 +67,7 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-md-4">
       @foreach ($beritas->skip(3) as $berita)
         <div class="col">
-          <div class="card rounded-10 p-3">
+          <div class="card rounded-3 p-3" style="border:none">
             <div class="position-absolute badge bg-light mx-3 my-3">
               <a class="text-decoration-none text-dark" href="/beritas?kategori={{ $berita->kategori->slug }}">{{ $berita->kategori->nama }}</a>
             </div>
