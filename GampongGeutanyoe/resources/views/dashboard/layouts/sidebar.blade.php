@@ -52,7 +52,7 @@
         </li>
         <li class="menu-item {{ Request::is('dashboard/administrasi/data-surat*') ? 'active' : '' }}">
           <a href="/dashboard/administrasi/data-surat" class="menu-link">
-            <div data-i18n="data surat">Data Surat</div>
+            <div data-i18n="data-surat">Data Surat</div>
           </a>
         </li>
         <li class="menu-item {{ Request::is('dashboard/administrasi/perizinan*') ? 'active' : '' }}">
@@ -63,12 +63,38 @@
       </ul>
     </li>
 
-    {{-- Laporan --}}
-    <li class="menu-item {{ Request::is('dashboard/laporan-keuangan*') ? 'active' : '' }}">
-      <a href="/dashboard/laporan-keuangan" class="menu-link">
-        <i class="fa-duotone fa-circle-dollar me-3"></i>
-        <div data-i18n="Analytics">Laporan Keuangan</div>
+    {{-- Data Penduduk --}}
+    <li class="menu-item {{ Request::is('dashboard/data-penduduk*') ? 'active' : '' }}">
+      <a href="/dashboard/data-penduduk" class="menu-link">
+        <i class="fa-duotone fa-people-simple me-3"></i>
+        <div data-i18n="Analytics">Data Penduduk</div>
       </a>
+    </li>
+
+    {{-- Laporan --}}
+    <li class="menu-item {{ Request::is('dashboard/laporan*') ? 'active open' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="fa-duotone fa-chart-mixed me-3"></i>
+        <div data-i18n="Layouts">Laporan</div>
+      </a>
+
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::is('dashboard/laporan/administrasi*') ? 'active' : '' }}">
+          <a href="/dashboard/laporan/administrasi" class="menu-link">
+            <div data-i18n="laporan-administrasi">Laporan Administrasi</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('dashboard/laporan/data-penduduk*') ? 'active' : '' }}">
+          <a href="/dashboard/laporan/data-penduduk" class="menu-link">
+            <div data-i18n="laporan-data-penduduk">Laporan Data Penduduk</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::is('dashboard/laporan/keuangan*') ? 'active' : '' }}">
+          <a href="/dashboard/laporan/keuangan" class="menu-link">
+            <div data-i18n="laporan-keuangan">Laporan Keuangan</div>
+          </a>
+        </li>
+      </ul>
     </li>
 
     {{-- Perangkat Gampong --}}

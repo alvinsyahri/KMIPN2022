@@ -13,8 +13,8 @@ class DashboardLaporanKeuanganController extends Controller
      */
     public function index()
     {
-        return view('dashboard.laporan.index',[
-            'title' => 'Laporan'
+        return view('dashboard.laporan.keuangan.index',[
+            'title' => 'Laporan Keuangan'
         ]);
     }
 
@@ -25,8 +25,8 @@ class DashboardLaporanKeuanganController extends Controller
      */
     public function create()
     {
-        return view('dashboard.laporan.create',[
-            'title' => 'Laporan'
+        return view('dashboard.laporan.keuangan.create',[
+            'title' => 'Laporan Keuangan'
         ]);
     }
 

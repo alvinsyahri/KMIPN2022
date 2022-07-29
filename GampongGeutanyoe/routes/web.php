@@ -110,7 +110,9 @@ Route::prefix('/dashboard')->group(function () {
         Route::put('/perizinan', [DashboardPerizinanController::class, 'konfirmasiPerizinan'])->middleware('auth');
     });
 
-    Route::resource('/laporan-keuangan', DashboardLaporanKeuanganController::class)->middleware('auth');
+    Route::prefix('/laporan')->group(function () {
+        Route::resource('/keuangan', DashboardLaporanKeuanganController::class)->middleware('auth');
+    });
 
     Route::resource('/user', AdminUserController::class)->except('show')->middleware('auth');
     Route::post('/user/reset-password', [AdminUserController::class, 'resetPassword'])->middleware('auth');
