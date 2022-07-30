@@ -6,8 +6,9 @@ use App\Models\User;
 use App\Models\Berita;
 use App\Models\Jabatan;
 use App\Models\Kategori;
-use App\Models\PerangkatGampong;
+use App\Models\JenisSurat;
 use Illuminate\Database\Seeder;
+use App\Models\PerangkatGampong;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -44,6 +45,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Berita::factory(20)->create();
+
+        JenisSurat::create([
+            'nama' => 'Surat Kuasa'
+        ]);
+
+        JenisSurat::create([
+            'nama' => 'Surat Keterangan Catatan Kepolisian'
+        ]);
+
+        JenisSurat::create([
+            'nama' => 'Surat Pengantar Laporan Kehilangan'
+        ]);
 
         Jabatan::create([
             'nama' => 'Geuchik'

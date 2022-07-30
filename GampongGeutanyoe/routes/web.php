@@ -2,7 +2,10 @@
 
 use App\Models\User;
 use App\Models\Berita;
+use App\Models\JenisSurat;
+use App\Models\PerangkatGampong;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AdminUserController;
@@ -11,11 +14,9 @@ use App\Http\Controllers\DashboardSolusiController;
 use App\Http\Controllers\DashboardJabatanController;
 use App\Http\Controllers\DashboardKategoriController;
 use App\Http\Controllers\DashboardDataSuratController;
+use App\Http\Controllers\DashboardPerizinanController;
 use App\Http\Controllers\DashboardLaporanKeuanganController;
 use App\Http\Controllers\DashboardPerangkatGampongController;
-use App\Http\Controllers\DashboardPerizinanController;
-use App\Http\Controllers\EmailController;
-use App\Models\PerangkatGampong;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,17 +50,18 @@ Route::prefix('/administrasi')->group(function () {
 
     Route::get('/form-adm', function () {
         return view('form_adm', [
-            "title" => "Form Administrasi"
+            "title" => "Form Administrasi",
+            "jenis_surats" => JenisSurat::all()
         ]);
     });
+    Route::post('/form-adm', [DashboardDataSuratController::class, 'buatSurat']);
 
-    Route::post('/perizinan', [DashboardPerizinanController::class, 'store']);
-    
     Route::get('/form-izin', function () {
         return view('form_izin', [
             "title" => "Form Perizinan"
         ]);
     });
+    Route::post('/perizinan', [DashboardPerizinanController::class, 'store']);
 });
 
 Route::get('/tentang', function () {
@@ -106,9 +108,10 @@ Route::prefix('/dashboard')->group(function () {
     Route::prefix('/administrasi')->group(function () {
         Route::resource('/solusi', DashboardSolusiController::class)->except(['create', 'store', 'show', 'edit'])->middleware('auth');
         
-        Route::resource('/data-surat', DashboardDataSuratController::class)->middleware('auth');
+        Route::resource('/data-surat', DashboardDataSuratController::class)->except(['show', 'destroy'])->middleware('auth');
+        Route::put('/data-surat', [DashboardDataSuratController::class, 'updateStatus'])->middleware('auth');
         
-        Route::resource('/perizinan', DashboardPerizinanController::class)->middleware('auth');
+        Route::resource('/perizinan', DashboardPerizinanController::class)->only(['index', 'store'])->middleware('auth');
         Route::put('/perizinan', [DashboardPerizinanController::class, 'konfirmasiPerizinan'])->middleware('auth');
     });
 

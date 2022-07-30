@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-  <div class="container mb-5 d-flex justify-content-center">
+  <div class="container my-5 d-flex justify-content-center">
     <div class="row">
       @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -10,7 +10,7 @@
         </div>
       @endif
 
-      <h1 class="text-center fw-bold mb-4" style="color:#000957;">FORM PERIZINAN</h1>
+      <h1 class="text-center fw-bold my-4" style="color:#000957;">FORM PERIZINAN</h1>
       <div class="col">
         <div class="card">
           <div class="card-body">
