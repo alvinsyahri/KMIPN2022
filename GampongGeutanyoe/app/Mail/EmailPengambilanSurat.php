@@ -7,20 +7,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class EmailPerizinan extends Mailable
+class EmailPengambilanSurat extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct()
     {
-        $this->data = $data;
+        //
     }
 
     /**
@@ -32,7 +30,7 @@ class EmailPerizinan extends Mailable
     {
         return $this
             ->from(env('MAIL_USERNAME'))
-            ->subject('Notifikasi Perizinan')
-            ->markdown('mails.email_perizinan')->with('data', $this->data);
+            ->subject('Pemberitahuan Pengambilan Surat')
+            ->markdown('mails.email_pengambilan_surat');
     }
 }

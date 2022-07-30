@@ -1,7 +1,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
   <div class="app-brand">
-    <a href="index.html" class="app-brand-link fs-4 fw-bold text-center">
-      Gampong Geutanyo
+    <a class="navbar-brand fs-5 fw-bold" href="/">
+      <span class="merek">GAMPONG</span> GEUTANYO
     </a>
   </div>
 
@@ -61,14 +61,6 @@
           </a>
         </li>
       </ul>
-    </li>
-
-    {{-- Data Penduduk --}}
-    <li class="menu-item {{ Request::is('dashboard/data-penduduk*') ? 'active' : '' }}">
-      <a href="/dashboard/data-penduduk" class="menu-link">
-        <i class="fa-duotone fa-people-simple me-3"></i>
-        <div data-i18n="Analytics">Data Penduduk</div>
-      </a>
     </li>
 
     {{-- Laporan --}}

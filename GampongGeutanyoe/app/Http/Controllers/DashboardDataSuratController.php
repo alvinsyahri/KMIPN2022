@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EmailPengambilanSurat;
 use App\Models\Surat;
 use App\Models\JenisSurat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class DashboardDataSuratController extends Controller
@@ -176,16 +178,20 @@ class DashboardDataSuratController extends Controller
     }
 
     public function updateStatus(Request $request)
-    {
+    { 
         $request['status'] = intval($request['status']);
-
+        
         $rules = [
             'status' => 'integer'
         ];
-
+        
         $validatedData = $request->validate($rules);
-
+        
         Surat::where('id', $request['id'])->update($validatedData);
+        
+        if ($request->status == 2) {
+            Mail::to($request->email)->send(new EmailPengambilanSurat);
+        }
 
         return redirect('/dashboard/administrasi/data-surat')->with('success', 'Status permohonan surat berhasil diperbarui!');
     }

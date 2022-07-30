@@ -144,6 +144,7 @@
                         @csrf
                         <div class="modal-body">
                           <input type="hidden" name="id" value="{{ $surat->id }}">
+                          <input type="hidden" name="email" value="{{ $surat->email }}">
                           <input type="hidden" name="status" value="2">
                           Apakah anda yakin mengubah status menjadi <span class="badge bg-info">Selesai Dibuat</span> ?
                         </div>

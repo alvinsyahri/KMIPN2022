@@ -2,8 +2,8 @@
 
 @section('content')
   <div class="containter">
-    <div class="row">
-      <div class="col">
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="card">
           <div class="card-body d-flex align-items-center">
             <i class="fa-duotone fa-user-circle fa-3x text-primary"></i>
@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-sm-6 col-lg-3">
         <div class="card">
           <div class="card-body d-flex align-items-center">
             <i class="fa-duotone fa-newspaper fa-3x text-dark"></i>
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-sm-6 col-lg-3">
         <div class="card">
           <div class="card-body d-flex align-items-center">
             <i class="fa-duotone fa-square-envelope fa-3x text-success"></i>
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-sm-6 col-lg-3">
         <div class="card">
           <div class="card-body d-flex align-items-center">
             <i class="fa-duotone fa-square-xmark fa-3x text-info"></i>

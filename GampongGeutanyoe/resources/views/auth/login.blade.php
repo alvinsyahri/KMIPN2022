@@ -66,8 +66,8 @@
           <div class="card-body">
             <!-- Logo -->
             <div class="app-brand justify-content-center">
-              <a href="/" class="app-brand-link gap-2">
-                Gampong Geutanyoe
+              <a class="navbar-brand fw-bold" href="/">
+                <span class="merek">GAMPONG</span> GEUTANYO
               </a>
             </div>
             <!-- /Logo -->

@@ -1,4 +1,10 @@
 @charset "UTF-8";
+
+.merek {
+  color: #00d7ff;
+  font-weight: 600;
+}
+
 .layout-navbar-fixed .layout-wrapper:not(.layout-horizontal) .layout-page:before {
   content: "";
   width: 100%;
