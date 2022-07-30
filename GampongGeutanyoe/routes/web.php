@@ -14,6 +14,7 @@ use App\Http\Controllers\DashboardBeritaController;
 use App\Http\Controllers\DashboardSolusiController;
 use App\Http\Controllers\DashboardJabatanController;
 use App\Http\Controllers\DashboardKategoriController;
+use App\Http\Controllers\DashboardPendudukController;
 use App\Http\Controllers\DashboardDataSuratController;
 use App\Http\Controllers\DashboardPerizinanController;
 use App\Http\Controllers\DashboardLaporanKeuanganController;
@@ -108,10 +109,10 @@ Route::prefix('/dashboard')->group(function () {
 
     Route::prefix('/administrasi')->group(function () {
         Route::resource('/solusi', DashboardSolusiController::class)->except(['create', 'store', 'show', 'edit'])->middleware('auth');
-        
+
         Route::resource('/data-surat', DashboardDataSuratController::class)->except(['show', 'destroy'])->middleware('auth');
         Route::put('/data-surat', [DashboardDataSuratController::class, 'updateStatus'])->middleware('auth');
-        
+
         Route::resource('/perizinan', DashboardPerizinanController::class)->only(['index', 'store'])->middleware('auth');
         Route::put('/perizinan', [DashboardPerizinanController::class, 'konfirmasiPerizinan'])->middleware('auth');
     });
@@ -127,4 +128,8 @@ Route::prefix('/dashboard')->group(function () {
         Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class)->except('show')->middleware('auth');
         Route::resource('/jabatan', DashboardJabatanController::class)->except(['create', 'show', 'edit'])->middleware('auth');
     });
+
+    Route::resource('/data-penduduk', DashboardPendudukController::class)->except('show')->middleware('auth');
+
+
 });

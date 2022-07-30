@@ -26,7 +26,10 @@
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>
-                    <img class="img-fluid" src="{{ asset('storage/' . $perangkat->foto) }}" alt="" width="75px">
+                    <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#modalLihatPhoto{{ $loop->iteration }}">
+                        <i class="fa-regular fa-eye me-1"></i>
+                        Lihat Photo
+                    </button>
                   </td>
                   <td>{{ $perangkat->nama }}</td>
                   <td>{{ $perangkat->jabatan->nama }}</td>
@@ -63,6 +66,26 @@
                   </div>
                 </div>
                 {{-- / Modal Hapus Perangkat Gampong --}}
+
+              {{-- Modal Lihat Photo --}}
+                <div class="modal fade" id="modalLihatPhoto{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">S
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Lihat Photo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body text-center">
+                        <img class="rounded-3" src="{{ asset('storage/' . $perangkat->foto) }}" alt="{{ 'KTP' . $perangkat->nama }}" height="300">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{-- / Modal Lihat Photo --}}
+
               @endforeach
             </tbody>
           </table>

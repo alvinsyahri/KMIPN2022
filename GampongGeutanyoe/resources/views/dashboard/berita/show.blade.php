@@ -25,8 +25,8 @@
       </div>
 
       @if ($berita->thumbnail)
-        <div style="max-height: 350px; overflow: hidden">
-          <img class="img-fluid mt-3" src="{{ asset('storage/' . $berita->thumbnail) }}" alt="{{ $berita->kategori->nama }}">
+        <div style="overflow: hidden; margin-top:5px">
+          <img style="max-height: 350px; class="img-fluid mt-3" src="{{ asset('storage/' . $berita->thumbnail) }}" alt="{{ $berita->kategori->nama }}">
         </div>
       @else
         <img class="img-fluid mt-3" src="https://source.unsplash.com/1200x400/?{{ $berita->kategori->nama }}" alt="{{ $berita->kategori->nama }}">
