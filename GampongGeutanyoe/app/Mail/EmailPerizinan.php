@@ -11,14 +11,16 @@ class EmailPerizinan extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $data;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -31,6 +33,6 @@ class EmailPerizinan extends Mailable
         return $this
             ->from('official.gamponggeutanyo@gmail.com')
             ->subject('Notifikasi Perizinan')
-            ->markdown('mails.email_perizinan');
+            ->markdown('mails.email_perizinan')->with('data', $this->data);
     }
 }

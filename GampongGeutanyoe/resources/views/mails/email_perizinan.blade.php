@@ -1,10 +1,13 @@
 @component('mail::message')
-  # Izin anda kami terima
+# {{ $data['msg'] }}
 
-  @component('mail::button', ['url' => 'link'])
-    More Detail
-  @endcomponent
-
-  Thanks,<br>
-  Gampong Geutanyoe
+Keterangan:<br>
+{{ $data['ket'] }}
+ 
+@component('mail::button', ['url' => 'http://localhost:8000'])
+Kembali Ke Website
+@endcomponent
+ 
+Hormat Kami,<br>
+{{ config('app.name') }}
 @endcomponent

@@ -124,7 +124,7 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Update Status Perizinan</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Perizinan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <form action="/dashboard/administrasi/perizinan" method="post">
@@ -133,6 +133,7 @@
                         <div class="modal-body">
                           <input type="hidden" name="id" value="{{ $perizinan->id }}">
                           <input type="hidden" name="email" value="{{ $perizinan->email }}">
+                          <input type="hidden" name="nama" value="{{ $perizinan->nama }}">
                           <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
                             <select class="form-select" name="status" id="status" required>
@@ -141,12 +142,12 @@
                             </select>
                           </div>
                           <div class="mb-3">
-                            <label for="alasan" class="form-label">Alasan</label>
-                            <textarea class="form-control" name="alasan" id="alasan" rows="5" required></textarea>
+                            <label for="keterangan" class="form-label">Keterangan (Opsional)</label>
+                            <textarea class="form-control" name="keterangan" id="keterangan" rows="5"></textarea>
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
                           <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                       </form>

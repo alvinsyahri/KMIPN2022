@@ -31,7 +31,7 @@
             <i class="fa-duotone fa-square-envelope fa-3x text-success"></i>
             <div class="d-flex flex-column ms-3">
               <h5 class="card-title fs-6 mb-0">Pengaduan</h5>
-              <p class="card-text fs-4 fw-semibold">15</p>
+              <p class="card-text fs-4 fw-semibold">{{ $total_pengaduan }}</p>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
             <i class="fa-duotone fa-square-xmark fa-3x text-info"></i>
             <div class="d-flex flex-column ms-3">
               <h5 class="card-title fs-6 mb-0">Perizinan</h5>
-              <p class="card-text fs-4 fw-semibold">30</p>
+              <p class="card-text fs-4 fw-semibold">{{ $total_perizinan }}</p>
             </div>
           </div>
         </div>

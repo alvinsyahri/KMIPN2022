@@ -2,6 +2,8 @@
 
 use App\Models\User;
 use App\Models\Berita;
+use App\Models\Solusi;
+use App\Models\Perizinan;
 use App\Models\JenisSurat;
 use App\Models\PerangkatGampong;
 use Illuminate\Support\Facades\Route;
@@ -91,8 +93,10 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/', function () {
         return view('dashboard.index', [
             'title' => 'Dashboard',
-            'total_users' => User::count(),
-            'total_berita' => Berita::count()
+            'total_users' => User::whereYear('created_at', now()->year)->count(),
+            'total_berita' => Berita::whereYear('created_at', now()->year)->count(),
+            'total_pengaduan' => Solusi::whereYear('created_at', now()->year)->count(),
+            'total_perizinan' => Perizinan::whereYear('created_at', now()->year)->count(),
         ]);
     })->middleware('auth');
 

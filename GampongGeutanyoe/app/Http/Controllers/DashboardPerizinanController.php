@@ -120,7 +120,18 @@ class DashboardPerizinanController extends Controller
 
         Perizinan::where('id', $request['id'])->update($validatedData);
 
-        Mail::to($request->email)->send(new EmailPerizinan);
+        if ($request['status'] == 2) {
+            $msg = "Bapak/Ibu $request->nama, izin anda kami terima.";
+        } elseif ($request['status'] == 3) {
+            $msg = "Mohon maaf, Bapak/Ibu $request->nama, izin anda kami tolak.";
+        }
+
+        $data = [
+            'msg' => $msg,
+            'ket' => $request->keterangan
+        ];
+
+        Mail::to($request->email)->send(new EmailPerizinan($data));
 
         return redirect('/dashboard/administrasi/perizinan')->with('success', 'Perizinan berhasil dikonfirmasi!');
     }
