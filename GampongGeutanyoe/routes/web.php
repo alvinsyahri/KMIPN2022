@@ -7,7 +7,6 @@ use App\Models\Perizinan;
 use App\Models\JenisSurat;
 use App\Models\PerangkatGampong;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AdminUserController;
@@ -38,8 +37,6 @@ Route::get('/', function () {
         'perangkats' => PerangkatGampong::with('jabatan')->get()
     ]);
 });
-
-// Route::get('/email', [EmailController::class, 'index']);
 
 Route::prefix('/administrasi')->group(function () {
     Route::get('/', function () {
