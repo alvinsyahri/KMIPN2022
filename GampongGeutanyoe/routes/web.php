@@ -40,7 +40,7 @@ Route::get('/', function () {
 Route::prefix('/administrasi')->group(function () {
     Route::get('/', function () {
         return view('administrasi', [
-            "title" => "Administrasi"
+            'title' => 'Administrasi'
         ]);
     });
 
@@ -48,15 +48,15 @@ Route::prefix('/administrasi')->group(function () {
 
     Route::get('/form-adm', function () {
         return view('form_adm', [
-            "title" => "Form Administrasi",
-            "jenis_surats" => JenisSurat::all()
+            'title' => 'Form Administrasi',
+            'jenis_surats' => JenisSurat::all()
         ]);
     });
     Route::post('/form-adm', [DashboardDataSuratController::class, 'buatSurat']);
 
     Route::get('/form-izin', function () {
         return view('form_izin', [
-            "title" => "Form Perizinan"
+            'title' => 'Form Perizinan'
         ]);
     });
     Route::post('/perizinan', [DashboardPerizinanController::class, 'store']);
@@ -64,13 +64,13 @@ Route::prefix('/administrasi')->group(function () {
 
 Route::get('/informasi', function () {
     return view('informasi', [
-        "title" => "Informasi Gampong"
+        'title' => 'Informasi Gampong',
     ]);
 });
 
 Route::get('/keuangan', function () {
     return view('keuangan', [
-        "title" => "Keuangan"
+        'title' => 'Keuangan'
     ]);
 });
 
@@ -86,7 +86,7 @@ Route::controller(LoginController::class)->group(function () {
 // Dashboard
 Route::prefix('/dashboard')->group(function () {
 
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware(['admin','sekdes','bendes']);
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
     Route::prefix('/berita')->group(function () {
         Route::get('/data-berita/checkSlug', [DashboardBeritaController::class, 'checkSlug'])->middleware('admin');

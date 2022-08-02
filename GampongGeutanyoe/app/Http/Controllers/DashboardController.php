@@ -32,6 +32,9 @@ class DashboardController extends Controller
                     ->pluck('total','year');
         // dd($perizinan->toArray());
         
+        if (auth()->guest() || auth()->user()->role == 0) {
+            abort(403);
+        }
         return view('dashboard.index', [
             'title' => 'Dashboard',
             'total_users' => User::whereYear('created_at', now()->year)->count(),
