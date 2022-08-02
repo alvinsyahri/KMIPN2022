@@ -9,6 +9,13 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       @endif
+
+      @if (session()->has('failed'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('failed') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
     </div>
   </div>
 
@@ -103,12 +110,13 @@
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <form action="dashboard/user/reset-password" method="post">
+                      <form action="/dashboard/user/reset-password" method="post">
                         @csrf
                         <div class="modal-body">
+                          <input type="hidden" name="id" value="{{ $user->id }}">
                           <div class="mb-3">
                             <label for="password" class="form-label">Password Baru</label>
-                            <div id="pwd" class="input-group">
+                            <div id="pwd1" class="input-group">
                               <input type="password" class="form-control border-end-0 @error('password') is-invalid @enderror" name="password" id="password" value="{{ old('password') }}" required>
                               <span class="input-group-text cursor-pointer">
                                 <i class="fa-regular fa-eye-slash" id="togglePassword"></i>
@@ -123,7 +131,7 @@
 
                           <div class="mb-3">
                             <label for="password2" class="form-label">Konfirmasi Password Baru</label>
-                            <div id="pwd" class="input-group">
+                            <div id="pwd2" class="input-group">
                               <input type="password" class="form-control border-end-0 @error('password2') is-invalid @enderror" name="password2" id="password2" value="{{ old('password2') }}" required>
                               <span class="input-group-text cursor-pointer">
                                 <i class="fa-regular fa-eye-slash" id="togglePassword"></i>
@@ -138,7 +146,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                       </form>
                     </div>
@@ -155,5 +163,39 @@
   </div>
   </div>
 
-  {{-- <script src="{{ asset('js/show-hide-password.js') }}"></script> --}}
+  <script>
+    const input1 = document.querySelector("#pwd1 input");
+    const eye1 = document.querySelector("#pwd1 .fa-eye-slash");
+
+    eye1.addEventListener("click", () => {
+      if (input1.type === "password") {
+        input1.type = "text";
+
+        eye1.classList.remove("fa-eye-slash");
+        eye1.classList.add("fa-eye");
+      } else {
+        input1.type = "password";
+
+        eye1.classList.remove("fa-eye");
+        eye1.classList.add("fa-eye-slash");
+      }
+    });
+
+    const input2 = document.querySelector("#pwd2 input");
+    const eye2 = document.querySelector("#pwd2 .fa-eye-slash");
+
+    eye2.addEventListener("click", () => {
+      if (input2.type === "password") {
+        input2.type = "text";
+
+        eye2.classList.remove("fa-eye-slash");
+        eye2.classList.add("fa-eye");
+      } else {
+        input2.type = "password";
+
+        eye2.classList.remove("fa-eye");
+        eye2.classList.add("fa-eye-slash");
+      }
+    });
+  </script>
 @endsection

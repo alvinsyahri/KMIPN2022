@@ -15,7 +15,7 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        return view('dashboard.user.index',[
+        return view('dashboard.user.index', [
             'title' => 'Users',
             'users' => User::all(),
         ]);
@@ -28,7 +28,7 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.user.create',[
+        return view('dashboard.user.create', [
             'title' => 'Tambah User Baru',
             'users' => User::all(),
         ]);
@@ -58,7 +58,7 @@ class AdminUserController extends Controller
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['role'] = intval($validatedData['role']);
-        
+
         User::create($validatedData);
 
         return redirect('/dashboard/user')->with('success', 'User baru berhasil dibuat!');
@@ -110,9 +110,9 @@ class AdminUserController extends Controller
         }
 
         $validatedData = $request->validate($rules);
-        
+
         User::where('id', $user->id)->update($validatedData);
-        
+
         return redirect('/dashboard/user')->with('success', 'User berhasil diperbarui!');
     }
 
@@ -128,8 +128,21 @@ class AdminUserController extends Controller
         return redirect('/dashboard/user')->with('success', "User $user->username berhasil dihapus!");
     }
 
-    public function resetPassword()
+    public function resetPasswordAdmin(Request $request)
     {
-        //
+        $rules = [
+            'password' => 'required|min:5|max:255',
+        ];
+
+        if ($request->password == $request->password2) {
+            $validatedData = $request->validate($rules);
+            $validatedData['password'] = Hash::make($validatedData['password']);
+
+            User::where('id', $request->id)->update($validatedData);
+        } else {
+            return back()->with('failed', 'Konfirmasi password tidak sesuai');
+        }
+
+        return redirect('/dashboard/user')->with('success', 'Password berhasil direset!');
     }
 }

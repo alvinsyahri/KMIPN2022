@@ -45,81 +45,118 @@
     </div>
   </section>
 
-  <section id="laporan">
-    <div class="container mt-5">
-      <div class="row">
-        <h2 class="text-center mb-5" style="color:#000957; font-weight: bold;">LAPORAN KEUANGAN DESA</h2>
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <table id="myTable" class="table responsive nowrap table-bordered table-striped align-middle" style="width:100%">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Tanggal</th>
-                    <th>Keterangan</th>
-                    <th>Debet</th>
-                    <th>Kredit</th>
-                    <th>Saldo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>12 Juli 2002</td>
-                    <td>Dana</td>
-                    <td>150000</td>
-                    <td>0</td>
-                    <td>150000</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </sectionc>
-
-    <section id="masukan">
-      <div class="container my-5">
+  @if (auth()->check())
+    <section id="laporan">
+      <div class="container mt-5">
         <div class="row">
-          <h2 class="text-center mb-5" style="color:#000957; font-weight: bold;">SOLUSI KAMI</h2>
+          <h2 class="text-center mb-5" style="color:#000957; font-weight: bold;">LAPORAN KEUANGAN DESA</h2>
           <div class="col">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    Accordion Item #1
-                  </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                    Accordion Item #2
-                  </button>
-                </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                    Accordion Item #3
-                  </button>
-                </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                </div>
+            <div class="card">
+              <div class="card-body">
+                <table id="myTable" class="table responsive nowrap table-bordered table-striped align-middle" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Tanggal</th>
+                      <th>Keterangan</th>
+                      <th>Debet</th>
+                      <th>Kredit</th>
+                      <th>Saldo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>12 Juli 2002</td>
+                      <td>Dana</td>
+                      <td>150000</td>
+                      <td>0</td>
+                      <td>150000</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  @endsection
+  @endif
+
+  <section id="masukan">
+    <div class="container my-5">
+      <div class="row">
+        <h2 class="text-center mb-5" style="color:#000957; font-weight: bold;">SOLUSI KAMI</h2>
+        <div class="col">
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  {{ $solusis[0]->masukan }}
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{ $solusis[0]->respon }}</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  {{ $solusis[1]->masukan }}
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{ $solusis[1]->respon }}</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  {{ $solusis[2]->masukan }}
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">{{ $solusis[2]->respon }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-5">
+            <button type="button" class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#modalSolusi">
+              Selengkapnya
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="modalSolusi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Solusi Kami</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            @foreach ($solusis as $solusi)
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ $loop->iteration }}" aria-expanded="false" aria-controls="flush-collapseOne">
+                    {{ $solusi->masukan }}
+                  </button>
+                </h2>
+                <div id="flush-collapse{{ $loop->iteration }}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">{{ $solusi->respon }}</div>
+                </div>
+              </div>
+            @endforeach
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+@endsection

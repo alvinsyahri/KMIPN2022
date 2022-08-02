@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardLaporanAdministrasiController;
 use App\Http\Controllers\DashboardPerizinanController;
 use App\Http\Controllers\DashboardLaporanKeuanganController;
 use App\Http\Controllers\DashboardPerangkatGampongController;
+use App\Models\Solusi;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,7 @@ Route::prefix('/administrasi')->group(function () {
 Route::get('/informasi', function () {
     return view('informasi', [
         'title' => 'Informasi Gampong',
+        'solusis' => Solusi::whereNotNull('respon')->get()
     ]);
 });
 
@@ -113,7 +115,7 @@ Route::prefix('/dashboard')->group(function () {
     });
 
     Route::resource('/user', AdminUserController::class)->except('show')->middleware('admin');
-    Route::post('/user/reset-password', [AdminUserController::class, 'resetPassword'])->middleware('admin');
+    Route::post('/user/reset-password', [AdminUserController::class, 'resetPasswordAdmin'])->middleware('admin');
 
     Route::prefix('/struktur')->group(function () {
         Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class)->except('show')->middleware('admin');
