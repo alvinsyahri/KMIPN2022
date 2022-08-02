@@ -56,23 +56,25 @@
                 <table id="myTable" class="table responsive nowrap table-bordered table-striped align-middle" style="width:100%">
                   <thead>
                     <tr>
-                      <th>No</th>
+                      <th>#</th>
                       <th>Tanggal</th>
-                      <th>Keterangan</th>
-                      <th>Debet</th>
-                      <th>Kredit</th>
+                      <th>Sumber Dana</th>
+                      <th>Pemasukan</th>
+                      <th>Pengeluaran</th>
                       <th>Saldo</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>12 Juli 2002</td>
-                      <td>Dana</td>
-                      <td>150000</td>
-                      <td>0</td>
-                      <td>150000</td>
-                    </tr>
+                    @foreach ($keuangans as $keuangan)
+                      <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $keuangan->created_at->format('d/m/Y') }}</td>
+                        <td>{{ $keuangan->sumber_dana }}</td>
+                        <td>{{ 'Rp' . number_format($keuangan->pemasukan, 0, ',', '.') }}</td>
+                        <td>{{ 'Rp' . number_format($keuangan->pengeluaran, 0, ',', '.') }}</td>
+                        <td>{{ 'Rp' . number_format($keuangan->saldo, 0, ',', '.') }}</td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

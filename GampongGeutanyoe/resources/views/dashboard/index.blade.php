@@ -3,7 +3,7 @@
 @section('content')
   <div class="containter">
     <div class="row g-3">
-      <div class="col-sm-6 col-md">
+      <div class="col-sm-6 col-md-4 col-lg">
         <div class="card">
           <div class="card-body d-flex align-items-center">
             <i class="fa-duotone fa-user-circle fa-3x text-primary"></i>
@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md">
+      <div class="col-sm-6 col-md-4 col-lg">
         <div class="card">
           <div class="card-body d-flex align-items-center">
             <i class="fa-duotone fa-newspaper fa-3x text-dark"></i>
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md">
+      <div class="col-sm-6 col-md-4 col-lg">
         <div class="card">
           <div class="card-body d-flex align-items-center">
             <i class="fa-duotone fa-pen-field fa-3x text-success"></i>
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md">
+      <div class="col-sm-6 col-md-4 col-lg">
         <div class="card">
           <div class="card-body d-flex align-items-center">
             <i class="fa-duotone fa-envelope fa-3x text-warning"></i>
@@ -47,7 +47,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md">
+      <div class="col-sm-6 col-md-4 col-lg">
         <div class="card">
           <div class="card-body d-flex align-items-center">
             <i class="fa-duotone fa-memo-circle-check fa-3x text-info"></i>
@@ -79,19 +79,11 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6 col-md-12">
         <div class="card">
           <div class="card-header fw-semibold text-center fs-5">Jenis Surat Yang Diurus per Tahun {{ now()->year }}</div>
           <div class="card-body">
             <div id="chartJenisSurat" style="height: 300px;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-header fw-semibold text-center fs-5">Grafik Laporan Keuangan</div>
-          <div class="card-body">
-            <div id="chartKeuangan" style="height: 300px;"></div>
           </div>
         </div>
       </div>

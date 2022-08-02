@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardLaporanAdministrasiController;
 use App\Http\Controllers\DashboardPerizinanController;
 use App\Http\Controllers\DashboardLaporanKeuanganController;
 use App\Http\Controllers\DashboardPerangkatGampongController;
+use App\Models\Keuangan;
 use App\Models\Solusi;
 
 /*
@@ -66,13 +67,14 @@ Route::prefix('/administrasi')->group(function () {
 Route::get('/informasi', function () {
     return view('informasi', [
         'title' => 'Informasi Gampong',
+        'keuangans' => Keuangan::latest()->get(),
         'solusis' => Solusi::whereNotNull('respon')->get()
     ]);
 });
 
 Route::get('/keuangan', function () {
     return view('keuangan', [
-        'title' => 'Keuangan'
+        'title' => 'Keuangan',
     ]);
 });
 
@@ -109,7 +111,7 @@ Route::prefix('/dashboard')->group(function () {
     });
 
     Route::prefix('/laporan')->group(function () {
-        Route::resource('/keuangan', DashboardLaporanKeuanganController::class)->middleware('bendes');
+        Route::resource('/keuangan', DashboardLaporanKeuanganController::class)->except(['show', 'edit', 'update'])->middleware('bendes');
 
         Route::resource('/administrasi', DashboardLaporanAdministrasiController::class)->middleware('sekdes');
     });

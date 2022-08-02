@@ -97,7 +97,7 @@
                 </div>
                 {{-- / Modal Lihat KTP --}}
 
-                {{-- Modal Lihat KTP --}}
+                {{-- Modal Lihat Perizinan --}}
                 <div class="modal fade" id="modalLihat{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -117,7 +117,7 @@
                     </div>
                   </div>
                 </div>
-                {{-- / Modal Lihat KTP --}}
+                {{-- / Modal Lihat Perizinan --}}
 
                 {{-- Modal Konfirmasi Perizinan --}}
                 <div class="modal fade" id="modalKonfirmasi{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

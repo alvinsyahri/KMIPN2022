@@ -49,6 +49,7 @@
               <label for="thumbnail" class="form-label">Thumbnail</label>
               <img class="img-preview img-fluid mb-3 col-sm-5">
               <input class="form-control @error('thumbnail') is-invalid @enderror" type="file" name="thumbnail" id="thumbnail" onchange="previewImage()">
+              <div id="thumbnailHelp" class="form-text">Ekstensi file: JPG, PNG maksimal 2MB</div>
               @error('thumbnail')
                 <div class="invalid-feedback">
                   {{ $message }}
