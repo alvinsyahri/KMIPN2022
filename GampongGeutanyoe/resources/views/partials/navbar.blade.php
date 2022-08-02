@@ -9,30 +9,40 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item me-5">
+        <li class="nav-item mx-2">
           <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">BERANDA</a>
         </li>
-        <li class="nav-item me-5">
+        <li class="nav-item mx-2">
           <a class="nav-link {{ Request::is('berita*') ? 'active' : '' }}" href="/berita">BERITA</a>
         </li>
-        <li class="nav-item me-5">
+        <li class="nav-item mx-2">
           <a class="nav-link {{ Request::is('administrasi*') ? 'active' : '' }}" href="/administrasi">ADMINISTRASI</a>
         </li>
-        <li class="nav-item me-5">
-          <a class="nav-link {{ Request::is('tentang*') ? 'active' : '' }}" href="/tentang">TENTANG</a>
+        <li class="nav-item mx-2">
+          <a class="nav-link {{ Request::is('informasi*') ? 'active' : '' }}" href="/informasi">INFORMASI</a>
         </li>
       </ul>
 
       @auth
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Welcome Back, {{ auth()->user()->nama }}
+            Hi, {{ auth()->user()->nama }} 👋
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @if (auth()->user()->role != 0)
+              <li>
+                <a class="dropdown-item align" href="/dashboard">
+                  <i class="fa-regular fa-grid-2 me-2"></i>
+                  Dashboard
+                </a>
+              </li>
+              <li class="dropdown-divider"></li>
+            @endif
             <li>
               <form action="/logout" method="post">
                 @csrf
                 <button type="submit" class="dropdown-item">
+                  <i class="fa-regular fa-arrow-right-from-bracket me-2"></i>
                   Logout
                 </button>
               </form>

@@ -5,7 +5,7 @@
     <div class="row mb-3">
       <div class="col">
         <div class="card">
-          <div class="card-header fw-semibold text-center fs-5">Grafik Jumlah Masukan yang Diterima per Tahun</div>
+          <div class="card-header fw-semibold text-center fs-5">Jumlah Masukan yang Diterima per Tahun</div>
           <div class="card-body">
             <div id="chartSolusi" style="height: 300px;"></div>
           </div>

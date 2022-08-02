@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Surat;
 use App\Models\Berita;
 use App\Models\Solusi;
 use App\Models\Perizinan;
@@ -37,6 +38,7 @@ class DashboardController extends Controller
             'total_berita' => Berita::whereYear('created_at', now()->year)->count(),
             'total_pengaduan' => Solusi::whereYear('created_at', now()->year)->count(),
             'total_perizinan' => Perizinan::whereYear('created_at', now()->year)->count(),
+            'total_surat' => Surat::whereYear('created_at', now()->year)->count(),
         ])->with(compact('surat', 'solusi', 'perizinan'));
     }
 }

@@ -62,9 +62,9 @@ Route::prefix('/administrasi')->group(function () {
     Route::post('/perizinan', [DashboardPerizinanController::class, 'store']);
 });
 
-Route::get('/tentang', function () {
-    return view('tentang', [
-        "title" => "Tentang"
+Route::get('/informasi', function () {
+    return view('informasi', [
+        "title" => "Informasi Gampong"
     ]);
 });
 
@@ -86,37 +86,37 @@ Route::controller(LoginController::class)->group(function () {
 // Dashboard
 Route::prefix('/dashboard')->group(function () {
 
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware(['admin','sekdes','bendes']);
 
     Route::prefix('/berita')->group(function () {
-        Route::get('/data-berita/checkSlug', [DashboardBeritaController::class, 'checkSlug'])->middleware('auth');
-        Route::resource('/data-berita', DashboardBeritaController::class)->middleware('auth');
+        Route::get('/data-berita/checkSlug', [DashboardBeritaController::class, 'checkSlug'])->middleware('admin');
+        Route::resource('/data-berita', DashboardBeritaController::class)->middleware('admin');
 
-        Route::get('/kategori-berita/createSlug', [DashboardKategoriController::class, 'checkSlug'])->middleware('auth');
-        Route::resource('/kategori-berita', DashboardKategoriController::class)->except(['show', 'edit'])->middleware('auth');
+        Route::get('/kategori-berita/createSlug', [DashboardKategoriController::class, 'checkSlug'])->middleware('admin');
+        Route::resource('/kategori-berita', DashboardKategoriController::class)->except(['show', 'edit'])->middleware('admin');
     });
 
     Route::prefix('/administrasi')->group(function () {
-        Route::resource('/solusi', DashboardSolusiController::class)->except(['create', 'store', 'show', 'edit'])->middleware('auth');
+        Route::resource('/solusi', DashboardSolusiController::class)->except(['create', 'store', 'show', 'edit'])->middleware('sekdes');
 
-        Route::resource('/data-surat', DashboardDataSuratController::class)->except(['show', 'destroy'])->middleware('auth');
-        Route::put('/data-surat', [DashboardDataSuratController::class, 'updateStatus'])->middleware('auth');
+        Route::resource('/data-surat', DashboardDataSuratController::class)->except(['show', 'destroy'])->middleware('sekdes');
+        Route::put('/data-surat', [DashboardDataSuratController::class, 'updateStatus'])->middleware('sekdes');
 
-        Route::resource('/perizinan', DashboardPerizinanController::class)->only(['index', 'store'])->middleware('auth');
-        Route::put('/perizinan', [DashboardPerizinanController::class, 'konfirmasiPerizinan'])->middleware('auth');
+        Route::resource('/perizinan', DashboardPerizinanController::class)->only(['index', 'store'])->middleware('sekdes');
+        Route::put('/perizinan', [DashboardPerizinanController::class, 'konfirmasiPerizinan'])->middleware('sekdes');
     });
 
     Route::prefix('/laporan')->group(function () {
-        Route::resource('/keuangan', DashboardLaporanKeuanganController::class)->middleware('auth');
+        Route::resource('/keuangan', DashboardLaporanKeuanganController::class)->middleware('bendes');
 
-        Route::resource('/administrasi', DashboardLaporanAdministrasiController::class)->middleware('auth');
+        Route::resource('/administrasi', DashboardLaporanAdministrasiController::class)->middleware('sekdes');
     });
 
-    Route::resource('/user', AdminUserController::class)->except('show')->middleware('auth');
-    Route::post('/user/reset-password', [AdminUserController::class, 'resetPassword'])->middleware('auth');
+    Route::resource('/user', AdminUserController::class)->except('show')->middleware('admin');
+    Route::post('/user/reset-password', [AdminUserController::class, 'resetPassword'])->middleware('admin');
 
     Route::prefix('/struktur')->group(function () {
-        Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class)->except('show')->middleware('auth');
-        Route::resource('/jabatan', DashboardJabatanController::class)->except(['create', 'show', 'edit'])->middleware('auth');
+        Route::resource('/perangkat-gampong', DashboardPerangkatGampongController::class)->except('show')->middleware('admin');
+        Route::resource('/jabatan', DashboardJabatanController::class)->except(['create', 'show', 'edit'])->middleware('admin');
     });
 });

@@ -39,7 +39,7 @@
   <title>Gampong Geutanyoe | Login</title>
 </head>
 
-<body>
+<body style="background-image: linear-gradient(to right, #5080da, #012258);">
 
   <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
@@ -62,11 +62,11 @@
           </div>
         </div>
         <!-- Login -->
-        <div class="card">
+        <div class="card shadow-md">
           <div class="card-body">
             <!-- Logo -->
             <div class="app-brand justify-content-center">
-              <a class="navbar-brand fw-bold" href="/">
+              <a class="navbar-brand fw-bold fs-5" href="/">
                 <span class="merek">GAMPONG</span> GEUTANYO
               </a>
             </div>

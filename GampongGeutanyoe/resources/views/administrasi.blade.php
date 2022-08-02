@@ -61,42 +61,45 @@
     </div>
   </div>
 
-  <div class="container-fluid administrasi p-0">
-    <div class="row flex-wrap" style="background-image: linear-gradient(to right, #5080da,#012258); color:white">
-      <div class="col-sm-6 col-md p-5">
-        <h4>ADMINISTRASI</h4>
-        <p>Buat permintaan surat administrasi yang anda butuhkan pada menu request di bawah ini.</p>
-        <a class="btn btn-adm px-4" href="/administrasi/form-adm">Request</a>
-
-        <h4 class="mt-5">KONTAK</h4>
-        <a class="btn btn-adm px-4" href="#">
-          <i class="fa-brands fa-whatsapp"></i>
-          +62 813 6441 2394
-        </a>
-      </div>
-      <div class="col-sm-6 col-md p-5">
-        <h4>MASUKAN</h4>
-        <form action="/administrasi/masukan" method="post">
-          @csrf
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control rounded-3" name="email" id="email" required>
-          </div>
-          <div class="mb-3">
-            <label for="masukan" class="form-label">Masukan</label>
-            <textarea class="form-control rounded-3" name="masukan" id="masukan" placeholder="Tuliskan masukan anda untuk gampong kami" rows="3" required></textarea>
-          </div>
-          <div class="text-end">
-            <button type="submit" class="btn btn-adm px-4">Kirim</button>
-          </div>
-        </form>
-      </div>
-
-      <div class="col-sm-6 col-md p-5">
-        <h4>PERIZINAN</h4>
-        <P>Buat permohonan izin anda pada menu request di bawah ini. </P>
-        <a class="btn btn-adm px-4" href="/administrasi/form-izin">Request</a>
+  <section class="administrasi p-5" style="background-image: linear-gradient(to right, #5080da,#012258); color:white">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md">
+          <h4>ADMINISTRASI</h4>
+          <p>Buat permintaan surat administrasi yang anda butuhkan pada menu request di bawah ini.</p>
+          <a class="btn btn-adm px-4" href="/administrasi/form-adm">Request</a>
+  
+          <h4 class="mt-5">KONTAK</h4>
+          <a class="btn btn-adm px-4" href="#">
+            <i class="fa-brands fa-whatsapp"></i>
+            +62 813 6441 2394
+          </a>
+        </div>
+        
+        <div class="col-sm-6 col-md">
+          <h4>MASUKAN</h4>
+          <form action="/administrasi/masukan" method="post">
+            @csrf
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control rounded-3" name="email" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="masukan" class="form-label">Masukan</label>
+              <textarea class="form-control rounded-3" name="masukan" id="masukan" placeholder="Tuliskan masukan anda untuk gampong kami" rows="3" required></textarea>
+            </div>
+            <div class="text-end">
+              <button type="submit" class="btn btn-adm px-4">Kirim</button>
+            </div>
+          </form>
+        </div>
+  
+        <div class="col-sm-6 col-md">
+          <h4>PERIZINAN</h4>
+          <P>Buat permohonan izin anda pada menu request di bawah ini. </P>
+          <a class="btn btn-adm px-4" href="/administrasi/form-izin">Request</a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 @endsection
