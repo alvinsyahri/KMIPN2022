@@ -1,14 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-  <div class="row">
-    <div class="col">
-      @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          {{ session('success') }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      @endif
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        @if (session()->has('success'))
+          <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
+      </div>
     </div>
   </div>
 
@@ -66,7 +68,7 @@
         <p>Buat permintaan surat administrasi yang anda butuhkan pada menu request di bawah ini.</p>
         <a class="btn btn-adm px-4" href="/administrasi/form-adm">Request</a>
 
-        <h4 class="">KONTAK</h4>
+        <h4 class="mt-5">KONTAK</h4>
         <a class="btn btn-adm px-4" href="#">
           <i class="fa-brands fa-whatsapp"></i>
           +62 813 6441 2394

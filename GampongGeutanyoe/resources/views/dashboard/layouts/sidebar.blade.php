@@ -76,11 +76,6 @@
             <div data-i18n="laporan-administrasi">Laporan Administrasi</div>
           </a>
         </li>
-        <li class="menu-item {{ Request::is('dashboard/laporan/data-penduduk*') ? 'active' : '' }}">
-          <a href="/dashboard/laporan/data-penduduk" class="menu-link">
-            <div data-i18n="laporan-data-penduduk">Laporan Data Penduduk</div>
-          </a>
-        </li>
         <li class="menu-item {{ Request::is('dashboard/laporan/keuangan*') ? 'active' : '' }}">
           <a href="/dashboard/laporan/keuangan" class="menu-link">
             <div data-i18n="laporan-keuangan">Laporan Keuangan</div>

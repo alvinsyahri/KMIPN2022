@@ -44,7 +44,11 @@
                   <td>
                     <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modalRespon{{ $loop->iteration }}">
                       <i class="fa-regular fa-pen-to-square me-1"></i>
-                      Respon
+                      @if ($solusi->respon)
+                        Edit Respon
+                      @else
+                        Respon
+                      @endif
                     </button>
                     <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapus{{ $loop->iteration }}">
                       <i class="fa-regular fa-trash-can fa-lg"></i>

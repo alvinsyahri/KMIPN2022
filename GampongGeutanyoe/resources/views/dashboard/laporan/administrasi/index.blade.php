@@ -1,66 +1,20 @@
 @extends('dashboard.layouts.main')
 
 @section('content')
-  <div class="containter">
-    <div class="row g-3">
-      <div class="col-sm-6 col-lg-3">
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col">
         <div class="card">
-          <div class="card-body d-flex align-items-center">
-            <i class="fa-duotone fa-user-circle fa-3x text-primary"></i>
-            <div class="d-flex flex-column ms-3">
-              <h5 class="card-title fs-6 mb-0">Jumlah User</h5>
-              <p class="card-text fs-4 fw-semibold">{{ $total_users }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="card">
-          <div class="card-body d-flex align-items-center">
-            <i class="fa-duotone fa-newspaper fa-3x text-dark"></i>
-            <div class="d-flex flex-column ms-3">
-              <h5 class="card-title fs-6 mb-0">Jumlah Berita</h5>
-              <p class="card-text fs-4 fw-semibold">{{ $total_berita }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="card">
-          <div class="card-body d-flex align-items-center">
-            <i class="fa-duotone fa-pen-field fa-3x text-success"></i>
-            <div class="d-flex flex-column ms-3">
-              <h5 class="card-title fs-6 mb-0">Pengaduan</h5>
-              <p class="card-text fs-4 fw-semibold">{{ $total_pengaduan }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="card">
-          <div class="card-body d-flex align-items-center">
-            <i class="fa-duotone fa-memo-circle-check fa-3x text-info"></i>
-            <div class="d-flex flex-column ms-3">
-              <h5 class="card-title fs-6 mb-0">Perizinan</h5>
-              <p class="card-text fs-4 fw-semibold">{{ $total_perizinan }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container mt-3 p-0">
-    <div class="row g-3">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-header fw-semibold text-center fs-5">Jumlah Masukan yang Diterima per Tahun</div>
+          <div class="card-header fw-semibold text-center fs-5">Grafik Jumlah Masukan yang Diterima per Tahun</div>
           <div class="card-body">
             <div id="chartSolusi" style="height: 300px;"></div>
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
+    </div>
+    
+    <div class="row mb-3">
+      <div class="col">
         <div class="card">
           <div class="card-header fw-semibold text-center fs-5">Jumlah Perizinan yang Diterima per Tahun</div>
           <div class="card-body">
@@ -68,19 +22,14 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
+    </div>
+    
+    <div class="row mb-3">
+      <div class="col">
         <div class="card">
           <div class="card-header fw-semibold text-center fs-5">Jenis Surat Yang Diurus per Tahun {{ now()->year }}</div>
           <div class="card-body">
             <div id="chartJenisSurat" style="height: 300px;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-header fw-semibold text-center fs-5">Grafik Laporan Keuangan</div>
-          <div class="card-body">
-            <div id="chartKeuangan" style="height: 300px;"></div>
           </div>
         </div>
       </div>

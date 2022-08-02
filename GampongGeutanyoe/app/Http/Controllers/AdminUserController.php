@@ -51,6 +51,10 @@ class AdminUserController extends Controller
             'role' => 'required'
         ]);
 
+        if ($validatedData['no_hp'][0] == 0) {
+            $validatedData['no_hp'] = substr($validatedData['no_hp'], 1);
+        }
+
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
         $validatedData['role'] = intval($validatedData['role']);

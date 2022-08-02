@@ -2,7 +2,7 @@
 
 @section('content')
   {{-- Button --}}
-  <a class="btn btn-primary" href="/dashboard/laporan-keuangan">
+  <a class="btn btn-primary" href="{{ route('keuangan.index') }}">
     Back
   </a>
   {{-- End Button --}}

@@ -121,10 +121,6 @@ a.berita {
     font-weight: bold;
 }
 
-.kategori {
-    margin-left: 1148px;
-}
-
 .btn-kategori {
     background-image: linear-gradient(to right, #5080da, #012258);
     border: none;
@@ -137,6 +133,12 @@ a.berita {
 
 .list-ktgr:hover {
     background-color: #d1d1d1;
+}
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #1e40af;
+    border-color: #1e40af;
 }
 
 /* Akhir CSS Berita */

@@ -77,7 +77,7 @@
               @csrf
               <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Masukkan username anda" autofocus />
+                <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Username anda" autofocus />
                 @error('username')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -87,7 +87,7 @@
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <div id="pwd" class="input-group">
-                  <input type="password" class="form-control border-end-0" name="password" id="password" value="{{ old('password') }}" required>
+                  <input type="password" class="form-control border-end-0" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" value="{{ old('password') }}" required>
                   <span class="input-group-text cursor-pointer">
                     <i class="fa-regular fa-eye-slash" id="togglePassword"></i>
                   </span>

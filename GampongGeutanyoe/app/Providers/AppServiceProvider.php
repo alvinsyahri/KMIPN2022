@@ -3,8 +3,11 @@
 namespace App\Providers;
 
 use Carbon\Carbon;
+use App\Charts\SuratChart;
+use App\Charts\SolusiChart;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use ConsoleTVs\Charts\Registrar as Charts;
 
 class AppServiceProvider extends ServiceProvider
 {

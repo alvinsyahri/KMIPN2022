@@ -1,20 +1,19 @@
 <?php
 
-use App\Models\User;
 use App\Models\Berita;
-use App\Models\Solusi;
-use App\Models\Perizinan;
 use App\Models\JenisSurat;
 use App\Models\PerangkatGampong;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardBeritaController;
 use App\Http\Controllers\DashboardSolusiController;
 use App\Http\Controllers\DashboardJabatanController;
 use App\Http\Controllers\DashboardKategoriController;
 use App\Http\Controllers\DashboardDataSuratController;
+use App\Http\Controllers\DashboardLaporanAdministrasiController;
 use App\Http\Controllers\DashboardPerizinanController;
 use App\Http\Controllers\DashboardLaporanKeuanganController;
 use App\Http\Controllers\DashboardPerangkatGampongController;
@@ -87,16 +86,7 @@ Route::controller(LoginController::class)->group(function () {
 // Dashboard
 Route::prefix('/dashboard')->group(function () {
 
-    Route::get('/', function () {
-        return view('dashboard.index', [
-            'title' => 'Dashboard',
-            'total_users' => User::whereYear('created_at', now()->year)->count(),
-            'total_berita' => Berita::whereYear('created_at', now()->year)->count(),
-            'total_pengaduan' => Solusi::whereYear('created_at', now()->year)->count(),
-            'total_perizinan' => Perizinan::whereYear('created_at', now()->year)->count(),
-        ]);
-    })->middleware('auth');
-
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
     Route::prefix('/berita')->group(function () {
         Route::get('/data-berita/checkSlug', [DashboardBeritaController::class, 'checkSlug'])->middleware('auth');
@@ -118,6 +108,8 @@ Route::prefix('/dashboard')->group(function () {
 
     Route::prefix('/laporan')->group(function () {
         Route::resource('/keuangan', DashboardLaporanKeuanganController::class)->middleware('auth');
+
+        Route::resource('/administrasi', DashboardLaporanAdministrasiController::class)->middleware('auth');
     });
 
     Route::resource('/user', AdminUserController::class)->except('show')->middleware('auth');

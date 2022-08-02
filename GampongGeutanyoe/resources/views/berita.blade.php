@@ -49,9 +49,9 @@
   </div>
 
   <div class="container">
-    <div class="row mb-5">
+    <div class="row my-5 d-flex align-items-center">
       <div class="col">
-        <div class="kategori dropdown mt-5 ms-0">
+        <div class="kategori dropdown">
           <button class="btn btn-kategori btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Kategori Berita
           </button>
@@ -62,8 +62,21 @@
           </ul>
         </div>
       </div>
+      <div class="col col-md-5">
+        <form action="/posts" method="get">
+          @if (request('kategori'))
+            <input type="hidden" name="kategori" value="{{ request('kategori') }}">
+          @endif
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}" autocomplete="off">
+            <button class="btn btn-primary rounded-end px-3" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 
+  <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2 g-md-4">
       @foreach ($beritas->skip(3) as $berita)
         <div class="col">
@@ -85,9 +98,10 @@
         </div>
       @endforeach
     </div>
+  </div>
 
-    <div class="d-flex justify-content-end mt-4">
-      {{ $beritas->onEachSide(6)->links() }}
-    </div>
+  <div class="d-flex justify-content-end mt-4">
+    {{ $beritas->onEachSide(6)->links() }}
+  </div>
   </div>
 @endsection
