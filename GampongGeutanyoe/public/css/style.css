@@ -109,6 +109,10 @@
 /* Akhir CSS Beranda */
 
 /* CSS Berita */
+/* .img-fit {
+    object-fit: cover;
+} */
+
 a.berita {
     text-decoration: none;
     color: white;

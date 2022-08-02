@@ -13,6 +13,20 @@ class Berita extends Model
     protected $guarded = ['id'];
     protected $with = ['kategori'];
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where('judul', 'like', '%' . $search . '%')
+                         ->orWhere('isi', 'like', '%' . $search . '%');
+        });
+
+        $query->when($filters['kategori'] ?? false, function ($query, $kategori) {
+            return $query->whereHas('kategori', function ($query) use ($kategori) {
+                $query->where('slug', $kategori);
+            });
+        });
+    }
+
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'id_kategori');

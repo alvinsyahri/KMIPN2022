@@ -10,9 +10,15 @@ class BeritaController extends Controller
 {
     public function index()
     {
+        $title = '';
+        if (request('kategori')) {
+            $kategori = Kategori::firstWhere('slug', request('kategori'));
+            $title = ' in ' . $kategori->nama;
+        }
+
         return view('berita', [
-            "title" => "Berita",
-            "beritas" => Berita::latest()->paginate(9)->withQueryString(),
+            "title" => "Berita $title",
+            'beritas' => Berita::latest()->filter(request(['search', 'kategori']))->paginate(9)->withQueryString(),
             'kategoris' => Kategori::all()
         ]);
     }
