@@ -36,7 +36,6 @@
     </div>
   </div>
 
-  <script src="https://code.highcharts.com/highcharts.js"></script>
   <script>
     var surat = <?= json_encode($surat) ?>;
     document.addEventListener('DOMContentLoaded', function() {

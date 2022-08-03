@@ -89,7 +89,7 @@
               <div class="position-absolute badge bg-light mx-3 my-3">
                 <a class="text-decoration-none text-dark" href="/berita?kategori={{ $berita->kategori->slug }}">{{ $berita->kategori->nama }}</a>
               </div>
-              <img src="https://source.unsplash.com/300x200/?{{ $berita->kategori->nama }}" class="card-img-top rounded-10" alt="{{ $berita->kategori->nama }}">
+              <img src="{{ asset('storage/' . $berita->thumbnail) }}" class="card-img-top rounded-10" alt="{{ $berita->kategori->nama }}">
               <div class="card-body p-0 mt-3">
                 <h5 class="card-title m-0">
                   <a class="text-decoration-none link-dark" href="/berita/{{ $berita->slug }}">

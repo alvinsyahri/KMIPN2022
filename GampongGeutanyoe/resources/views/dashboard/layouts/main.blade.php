@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="{{ asset('vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
   {{-- Chart JS --}}
-
+  <script src="https://code.highcharts.com/highcharts.js"></script>
 
   <!-- Page CSS -->
 

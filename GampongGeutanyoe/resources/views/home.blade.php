@@ -79,7 +79,7 @@
       <div class="row p-4">
         @foreach ($perangkats as $perangkat)
           <div class="col mt-4 mt-md-0" data-aos="fade-up" data-aos-duration="1000">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
               @if ($perangkat->foto)
                 <img src="{{ asset('storage/' . $perangkat->foto) }}" alt="{{ $perangkat->nama }}" class="card-img-top" height="400px">
               @else

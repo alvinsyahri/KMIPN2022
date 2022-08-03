@@ -90,8 +90,7 @@
     </div>
   </div>
 
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script>
+  <script type="text/javascript">
     var surat = <?= json_encode($surat) ?>;
     document.addEventListener('DOMContentLoaded', function() {
       const chart = Highcharts.chart('chartJenisSurat', {
