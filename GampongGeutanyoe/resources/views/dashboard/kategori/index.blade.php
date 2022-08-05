@@ -98,7 +98,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">Hapus Kategori</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                      <form action="{{ route('kategori-berita.destroy', $kategori->id) }}" method="post">
+                      <form action="{{ route('kategori-berita.destroy', $kategori->slug) }}" method="post">
                         @method('delete')
                         @csrf
                         <div class="modal-body">
