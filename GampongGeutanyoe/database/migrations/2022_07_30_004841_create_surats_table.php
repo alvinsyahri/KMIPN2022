@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('telp');
-            $table->foreignId('id_jenis_surat');
+            $table->foreignId('id_jenis_surat')->constrained('surats')->onUpdate('cascade')->onDelete('restrict');
             $table->string('kk');
             $table->string('ktp');
             $table->tinyInteger('status')->default(1);

@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'role' => 1,
         ]);
 
-        // User::factory(10)->create();
+        User::factory(10)->create();
 
         Kategori::create([
             'nama' => 'Sosial',
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'pengumuman'
         ]);
 
-        // Berita::factory(20)->create();
+        Berita::factory(20)->create();
 
         JenisSurat::create([
             'nama' => 'Surat Kuasa'
@@ -95,6 +95,6 @@ class DatabaseSeeder extends Seeder
             'id_jabatan' => 4
         ]);
 
-        // Solusi::factory(20)->create();
+        Solusi::factory(20)->create();
     }
 }

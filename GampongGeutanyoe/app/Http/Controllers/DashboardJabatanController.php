@@ -83,9 +83,9 @@ class DashboardJabatanController extends Controller
         ];
 
         $validatedData = $request->validate($rules);
-        
+
         Jabatan::where('id', $jabatan->id)->update($validatedData);
-        
+
         return redirect('/dashboard/struktur/jabatan')->with('success', 'Jabatan berhasil diperbarui!');
     }
 
@@ -97,7 +97,15 @@ class DashboardJabatanController extends Controller
      */
     public function destroy(Jabatan $jabatan)
     {
-        Jabatan::destroy($jabatan->id);
+        try {
+            Jabatan::destroy($jabatan->id);
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->getCode() == 23000) {
+                //SQLSTATE[23000]: Integrity constraint violation
+                return redirect('/dashboard/struktur/jabatan')->with('failed', 'Jabatan tidak dapat dihapus, karena sedang digunakan pada tabel lain!');
+            }
+        }
+
         return redirect('/dashboard/struktur/jabatan')->with('success', 'Jabatan berhasil dihapus!');
     }
 }

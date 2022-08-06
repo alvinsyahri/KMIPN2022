@@ -91,9 +91,9 @@ class DashboardKategoriController extends Controller
         }
 
         $validatedData = $request->validate($rules);
-        
+
         Kategori::where('id', $kategori_beritum->id)->update($validatedData);
-        
+
         return redirect('/dashboard/berita/kategori-berita')->with('success', 'Kategori berhasil diperbarui!');
     }
 
@@ -105,7 +105,15 @@ class DashboardKategoriController extends Controller
      */
     public function destroy(Kategori $kategori_beritum)
     {
-        Kategori::destroy($kategori_beritum->id);
+        try {
+            Kategori::destroy($kategori_beritum->id);
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->getCode() == 23000) {
+                //SQLSTATE[23000]: Integrity constraint violation
+                return redirect('/dashboard/berita/kategori-berita')->with('failed', 'Kategori tidak dapat dihapus, karena sedang digunakan pada tabel lain!');
+            }
+        }
+
         return redirect('/dashboard/berita/kategori-berita')->with('success', 'Kategori berhasil dihapus!');
     }
 

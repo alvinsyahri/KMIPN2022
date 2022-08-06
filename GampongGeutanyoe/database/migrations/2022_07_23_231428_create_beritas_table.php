@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('beritas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_kategori');
+            $table->foreignId('id_kategori')->constrained('kategoris')->onUpdate('cascade')->onDelete('restrict');
             $table->string('judul');
             $table->string('slug')->unique();
             $table->string('thumbnail')->nullable();
