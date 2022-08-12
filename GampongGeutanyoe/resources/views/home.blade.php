@@ -74,11 +74,11 @@
   </section>
 
   <section id="pemuka">
-    <div class="container">
-      <h2 class="pemuka text-center text-white fw-bold">PEMUKA GAMPONG</h2>
-      <div class="row p-4">
+    <div class="container mb-5">
+      <h2 class="pemuka text-center text-white fw-bold mb-5">PEMUKA GAMPONG</h2>
+      <div class="row g-3">
         @foreach ($perangkats as $perangkat)
-          <div class="col mt-4 mt-md-0" data-aos="fade-up" data-aos-duration="1000">
+          <div class="col-sm-6 col-lg-3 g-4" data-aos="fade-up" data-aos-duration="1000">
             <div class="card">
               @if ($perangkat->foto)
                 <img src="{{ asset('storage/' . $perangkat->foto) }}" alt="{{ $perangkat->nama }}" class="card-img-top" height="400px">
